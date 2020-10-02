@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "gildedarmor:gilded_netherite_helmet",
+    "gildedarmor:gilded_netherite_chestplate",
+    "gildedarmor:gilded_netherite_leggings",
+    "gildedarmor:gilded_netherite_boots"
+  ]
+}

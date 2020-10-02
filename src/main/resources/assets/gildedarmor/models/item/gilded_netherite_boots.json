@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "gildedarmor:item/gilded_netherite_boots"
+  }
+}
