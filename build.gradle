@@ -6,6 +6,7 @@ plugins {
 repositories {
     maven {
         url "https://jitpack.io"
+		name "Jitpack"
     }
 }
 
@@ -27,9 +28,9 @@ dependencies {
 
 	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
 	// You may need to force-disable transitiveness on them.
-	
-	modImplementation "com.github.Shnupbups:Piglib:1.0"
-    include "com.github.Shnupbups:Piglib:1.0"
+
+	modApi "com.github.Shnupbups:Piglib:1.0.2-1.16"
+	include "com.github.Shnupbups:Piglib:1.0.2-1.16"
 }
 
 processResources {

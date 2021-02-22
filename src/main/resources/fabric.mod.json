@@ -3,13 +3,15 @@
   "id": "gildedarmor",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is a mod that adds gilded armor to the game.\nGilded armor makes piglins peaceful while you're using netherite armor.\nJust combine a piece of armor with a gold ingot on a smithing table and you're ready to go!",
+  "name": "Gilded Armor",
+  "description": "Gilded armor makes piglins peaceful while you're using a stronger material.",
   "authors": [
     "MaroonShaded"
   ],
   "contact": {
-    "sources": "https://github.com/MaroonShaded/GildedArmorFabric"
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/gildedarmor",
+    "sources": "https://github.com/MaroonShaded/GildedArmorFabric",
+    "issues": "https://github.com/MaroonShaded/GildedArmorFabric/issues"
   },
 
   "license": "MIT",

@@ -1,6 +1,5 @@
 package maroonshaded.gildedarmor.item;
 
-import maroonshaded.gildedarmor.GildedArmor;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ArmorMaterials;
@@ -11,58 +10,58 @@ public enum ModArmorMaterial implements ArmorMaterial
 {
     GILDED_NETHERITE(ArmorMaterials.NETHERITE);
 
-    private final ArmorMaterial REFERENCE;
+    private final ArmorMaterial reference;
 
     ModArmorMaterial(ArmorMaterial reference)
     {
-        REFERENCE = reference;
+        this.reference = reference;
     }
 
     @Override
     public int getDurability(EquipmentSlot slot)
     {
-        return REFERENCE.getDurability(slot);
+        return reference.getDurability(slot);
     }
 
     @Override
     public int getProtectionAmount(EquipmentSlot slot)
     {
-        return REFERENCE.getProtectionAmount(slot);
+        return reference.getProtectionAmount(slot);
     }
 
     @Override
     public int getEnchantability()
     {
-        return REFERENCE.getEnchantability();
+        return reference.getEnchantability();
     }
 
     @Override
     public SoundEvent getEquipSound()
     {
-        return REFERENCE.getEquipSound();
+        return reference.getEquipSound();
     }
 
     @Override
     public Ingredient getRepairIngredient()
     {
-        return REFERENCE.getRepairIngredient();
+        return reference.getRepairIngredient();
     }
 
     @Override
     public String getName()
     {
-        return "gilded_" + REFERENCE.getName();
+        return "gilded_" + reference.getName();
     }
 
     @Override
     public float getToughness()
     {
-        return REFERENCE.getToughness();
+        return reference.getToughness();
     }
 
     @Override
     public float getKnockbackResistance()
     {
-        return REFERENCE.getKnockbackResistance();
+        return reference.getKnockbackResistance();
     }
 }
