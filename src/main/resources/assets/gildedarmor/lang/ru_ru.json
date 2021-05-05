@@ -2,5 +2,9 @@
   "item.gildedarmor.gilded_netherite_helmet": "Позолоченный незеритовый шлем",
   "item.gildedarmor.gilded_netherite_chestplate": "Позолоченный незеритовый нагрудник",
   "item.gildedarmor.gilded_netherite_leggings": "Позолоченные незеритовые поножи",
-  "item.gildedarmor.gilded_netherite_boots": "Позолоченные незеритовые ботинки"
+  "item.gildedarmor.gilded_netherite_boots": "Позолоченные незеритовые ботинки",
+  "item.gildedarmor.gilded_enderite_helmet": "Позолоченный эндернитовый шлем",
+  "item.gildedarmor.gilded_enderite_chestplate": "Позолоченный эндернитовый нагрудник",
+  "item.gildedarmor.gilded_enderite_leggings": "Позолоченные эндернитовые поножи",
+  "item.gildedarmor.gilded_enderite_boots": "Позолоченные эндернитовые ботинки"
 }

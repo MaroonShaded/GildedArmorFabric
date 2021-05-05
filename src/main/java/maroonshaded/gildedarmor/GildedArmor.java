@@ -17,6 +17,12 @@ public class GildedArmor implements ModInitializer
         registerItem("gilded_netherite_chestplate", ModItems.GILDED_NETHERITE_CHESTPLATE);
         registerItem("gilded_netherite_leggings", ModItems.GILDED_NETHERITE_LEGGINGS);
         registerItem("gilded_netherite_boots", ModItems.GILDED_NETHERITE_BOOTS);
+        
+        // For the Enderite mod
+        registerItem("gilded_enderite_helmet", ModItems.GILDED_ENDERITE_HELMET);
+        registerItem("gilded_enderite_chestplate", ModItems.GILDED_ENDERITE_CHESTPLATE);
+        registerItem("gilded_enderite_leggings", ModItems.GILDED_ENDERITE_LEGGINGS);
+        registerItem("gilded_enderite_boots", ModItems.GILDED_ENDERITE_BOOTS);
     }
 
     private void registerItem(String id, Item item)

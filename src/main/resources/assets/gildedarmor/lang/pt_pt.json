@@ -2,5 +2,9 @@
   "item.gildedarmor.gilded_netherite_helmet": "Capacete de netherite dourado",
   "item.gildedarmor.gilded_netherite_chestplate": "Peitoral de netherite dourado",
   "item.gildedarmor.gilded_netherite_leggings": "Perneiras de netherite douradas",
-  "item.gildedarmor.gilded_netherite_boots": "Botas de netherite douradas"
+  "item.gildedarmor.gilded_netherite_boots": "Botas de netherite douradas",
+  "item.gildedarmor.gilded_enderite_helmet": "Capacete de enderite dourado",
+  "item.gildedarmor.gilded_enderite_chestplate": "Peitoral de enderite dourado",
+  "item.gildedarmor.gilded_enderite_leggings": "Perneiras de enderite douradas",
+  "item.gildedarmor.gilded_enderite_boots": "Botas de enderite douradas"
 }
