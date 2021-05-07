@@ -25,9 +25,10 @@ public enum ModArmorMaterial implements ArmorMaterial
         Optional<Item> item = Registry.ITEM.getOrEmpty(new Identifier("enderitemod", "enderite_ingot"));
         if (item.isPresent()) return Ingredient.ofItems(item.get());
         return Ingredient.ofItems();
-    });
+    }, true);
 
-    private static final int[] BASE_DURABILITY = new int[]{13, 15, 16, 11};
+    private static final int[] BASE_DURABILITY = {13, 15, 16, 11};
+    private static final int[] ENDERITE_BASE_DURABILITY = {128, 144, 160, 112};
     private final String name;
     private final ToIntFunction<EquipmentSlot> durability;
     private final ToIntFunction<EquipmentSlot> protectionAmount;
@@ -37,10 +38,10 @@ public enum ModArmorMaterial implements ArmorMaterial
     private final float knockbackResistance;
     private final Lazy<Ingredient> repairIngredientSupplier;
 
-    ModArmorMaterial(String name, int durabilityMultiplier, int[] protectionAmounts, int enchantability, SoundEvent equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredientSupplier)
+    ModArmorMaterial(String name, int durabilityMultiplier, int[] protectionAmounts, int enchantability, SoundEvent equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredientSupplier, boolean useEnderiteDurability)
     {
         this.name = name;
-        this.durability = (slot) -> getBaseDurability()[slot.getEntitySlotId()] * durabilityMultiplier;
+        this.durability = (slot) -> (useEnderiteDurability ? getEnderiteBaseDurability() : getBaseDurability())[slot.getEntitySlotId()] * durabilityMultiplier;
         this.protectionAmount = (slot) -> protectionAmounts[slot.getEntitySlotId()];
         this.enchantability = enchantability;
         this.equipSound = equipSound;
@@ -64,6 +65,11 @@ public enum ModArmorMaterial implements ArmorMaterial
     public static int[] getBaseDurability()
     {
         return BASE_DURABILITY;
+    }
+
+    public static int[] getEnderiteBaseDurability()
+    {
+        return ENDERITE_BASE_DURABILITY;
     }
 
     @Override
