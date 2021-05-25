@@ -1,7 +1,7 @@
 # Gilded Armor
 ![Image](https://i.imgur.com/sre300B.png)
 
-[![Versions](https://cf.way2muchnoise.eu/versions/gildedarmor.svg?badge_style=for_the_badge)](https://www.curseforge.com/minecraft/mc-mods/gildedarmor)
+[![Versions](http://cf.way2muchnoise.eu/versions/gildedarmor.svg?badge_style=for_the_badge)](https://www.curseforge.com/minecraft/mc-mods/gildedarmor)
 [![Downloads](http://cf.way2muchnoise.eu/short_gildedarmor_downloads.svg?badge_style=for_the_badge)](https://www.curseforge.com/minecraft/mc-mods/gildedarmor/files)
 
 [![GitHub](https://img.shields.io/github/license/MaroonShaded/GildedArmor?color=blue&logo=GitHub&style=for-the-badge)](https://opensource.org/licenses/MIT)
