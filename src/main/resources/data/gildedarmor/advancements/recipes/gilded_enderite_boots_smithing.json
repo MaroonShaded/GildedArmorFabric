@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "minecraft:enderite_boots"
+            "item": "enderitemod:enderite_boots"
           }
         ]
       }

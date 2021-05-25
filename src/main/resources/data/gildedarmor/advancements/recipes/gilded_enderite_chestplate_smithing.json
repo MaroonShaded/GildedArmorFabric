@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "minecraft:enderite_chestplate"
+            "item": "enderitemod:enderite_chestplate"
           }
         ]
       }
