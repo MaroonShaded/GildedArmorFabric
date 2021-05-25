@@ -7,7 +7,7 @@
   "item.gildedarmor.gilded_enderite_chestplate": "Peitoral de enderite dourado",
   "item.gildedarmor.gilded_enderite_leggings": "Perneiras de enderite douradas",
   "item.gildedarmor.gilded_enderite_boots": "Botas de enderite douradas",
-  "item.gildedarmor.generic.upgrading_note1": "Nota: A não ser que seja implementado por outros",
-  "item.gildedarmor.generic.upgrading_note2": "mods, armadura dourada não pode ser melhorada para",
-  "item.gildedarmor.generic.upgrading_note3": "um estágio seguinte do seu equivalente não dourado."
+  "item.gildedarmor.generic.upgrading_note1": "Nota: A não ser que seja implementado",
+  "item.gildedarmor.generic.upgrading_note2": "por outros mods, as armaduras douradas",
+  "item.gildedarmor.generic.upgrading_note3": "não podem ser melhoradas."
 }
