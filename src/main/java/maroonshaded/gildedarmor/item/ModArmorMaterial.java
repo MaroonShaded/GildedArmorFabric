@@ -19,12 +19,11 @@ import java.util.function.ToIntFunction;
 
 public enum ModArmorMaterial implements ArmorMaterial
 {
-    GILDED_NETHERITE(ArmorMaterials.NETHERITE),
+    GILDED_NETHERITE("gilded_netherite", ArmorMaterials.NETHERITE),
     GILDED_ENDERITE("gilded_enderite", 8, new int[] { 4, 7, 9, 4 }, 17, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 4.0F, 0.1F, () ->
     {
         Optional<Item> item = Registry.ITEM.getOrEmpty(new Identifier("enderitemod", "enderite_ingot"));
-        if (item.isPresent()) return Ingredient.ofItems(item.get());
-        return Ingredient.ofItems();
+        return item.isPresent() ? Ingredient.ofItems(item.get()) : Ingredient.ofItems();
     }, true);
 
     private static final int[] BASE_DURABILITY = {13, 15, 16, 11};
@@ -41,8 +40,8 @@ public enum ModArmorMaterial implements ArmorMaterial
     ModArmorMaterial(String name, int durabilityMultiplier, int[] protectionAmounts, int enchantability, SoundEvent equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredientSupplier, boolean useEnderiteDurability)
     {
         this.name = name;
-        this.durability = (slot) -> (useEnderiteDurability ? getEnderiteBaseDurability() : getBaseDurability())[slot.getEntitySlotId()] * durabilityMultiplier;
-        this.protectionAmount = (slot) -> protectionAmounts[slot.getEntitySlotId()];
+        durability = (slot) -> (useEnderiteDurability ? getEnderiteBaseDurability() : getBaseDurability())[slot.getEntitySlotId()] * durabilityMultiplier;
+        protectionAmount = (slot) -> protectionAmounts[slot.getEntitySlotId()];
         this.enchantability = enchantability;
         this.equipSound = equipSound;
         this.toughness = toughness;
@@ -50,16 +49,16 @@ public enum ModArmorMaterial implements ArmorMaterial
         this.repairIngredientSupplier = new Lazy<>(repairIngredientSupplier);
     }
 
-    ModArmorMaterial(ArmorMaterial reference)
+    ModArmorMaterial(String name, ArmorMaterial reference)
     {
-        this.name = "gilded_" + reference.getName();
-        this.durability = reference::getDurability;
-        this.protectionAmount = reference::getProtectionAmount;
-        this.enchantability = reference.getEnchantability();
-        this.equipSound = reference.getEquipSound();
-        this.toughness = reference.getToughness();
-        this.knockbackResistance = reference.getKnockbackResistance();
-        this.repairIngredientSupplier = new Lazy<>(reference::getRepairIngredient);
+        this.name = name;
+        durability = reference::getDurability;
+        protectionAmount = reference::getProtectionAmount;
+        enchantability = reference.getEnchantability();
+        equipSound = reference.getEquipSound();
+        toughness = reference.getToughness();
+        knockbackResistance = reference.getKnockbackResistance();
+        repairIngredientSupplier = new Lazy<>(reference::getRepairIngredient);
     }
 
     public static int[] getBaseDurability()
