@@ -1,0 +1,13 @@
+{
+  "item.gildedarmor.gilded_netherite_helmet": "Casque en Netherite doré",
+  "item.gildedarmor.gilded_netherite_chestplate": "Plastron en Netherite doré",
+  "item.gildedarmor.gilded_netherite_leggings": "Jambières en Netherite dorées",
+  "item.gildedarmor.gilded_netherite_boots": "Bottes en Netherite dorées",
+  "item.gildedarmor.gilded_enderite_helmet": "Casque en Enderite doré",
+  "item.gildedarmor.gilded_enderite_chestplate": "Plastron en Enderite doré",
+  "item.gildedarmor.gilded_enderite_leggings": "Jambières en Enderite dorées",
+  "item.gildedarmor.gilded_enderite_boots": "Bottes en Enderite dorées",
+  "item.gildedarmor.generic.upgrading_note1": "Note: Sauf si implémenté par",
+  "item.gildedarmor.generic.upgrading_note2": "d'autres Mods, les armures dorées",
+  "item.gildedarmor.generic.upgrading_note3": "ne peuvent pas être améliorées."
+}
