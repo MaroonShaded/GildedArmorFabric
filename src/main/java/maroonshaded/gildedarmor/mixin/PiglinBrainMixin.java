@@ -13,6 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 import java.util.Iterator;
 
+@SuppressWarnings("unused")
 @Mixin(PiglinBrain.class)
 public class PiglinBrainMixin
 {
