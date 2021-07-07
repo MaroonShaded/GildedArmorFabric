@@ -31,4 +31,7 @@ To craft it, just combine the armor piece you want with a gold ingot in a smithi
 - [Moze-Yosel](https://github.com/Moze-Yosel) - Chinese
 - [zeedif](https://github.com/zeedif) - Spanish
 
+## Semantic Versioning
+This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
 ![Separator](https://i.imgur.com/24oOTbP.png)
