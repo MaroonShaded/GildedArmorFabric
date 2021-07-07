@@ -24,5 +24,7 @@ Gilded armor makes piglins peaceful while you're using a stronger material.
 - [kirechka](https://www.curseforge.com/members/kirechka) - Russian
 - [randomnickname2137](https://www.curseforge.com/members/randomnickname2137) and [Jacobs-Develop](https://github.com/Jacobs-Develop) - Polish
 - [spiderval97431](https://www.curseforge.com/members/spiderval97431) - French
+- [Moze-Yosel](https://github.com/Moze-Yosel) - Chinese
+- [zeedif](https://github.com/zeedif) - Spanish
 
 ![Separator](https://i.imgur.com/24oOTbP.png)
