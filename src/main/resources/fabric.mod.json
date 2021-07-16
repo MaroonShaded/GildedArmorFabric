@@ -23,14 +23,13 @@
       "maroonshaded.gildedarmor.GildedArmor"
     ]
   },
+  "mixins": [
+    "gildedarmor.mixins.json"
+  ],
 
   "depends": {
-    "fabricloader": ">=0.7.4",
+    "fabricloader": "*",
     "fabric": "*",
-    "minecraft": "1.16.x",
-    "piglib": "*"
-  },
-  "suggests": {
-    "flamingo": "*"
+    "minecraft": "1.16.x"
   }
 }

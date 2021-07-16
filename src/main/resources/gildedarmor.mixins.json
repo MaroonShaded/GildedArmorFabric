@@ -4,7 +4,7 @@
   "package": "maroonshaded.gildedarmor.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "StopEndermanAggravationMixin"
+    "EndermanEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
