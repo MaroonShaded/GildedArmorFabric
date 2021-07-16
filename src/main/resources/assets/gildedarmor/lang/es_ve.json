@@ -1,0 +1,13 @@
+{
+  "item.gildedarmor.gilded_netherite_helmet": "Casco de netherita dorado",
+  "item.gildedarmor.gilded_netherite_chestplate": "Pechera de netherita dorado",
+  "item.gildedarmor.gilded_netherite_leggings": "Grebas de netherita doradas",
+  "item.gildedarmor.gilded_netherite_boots": "Botas de netherita doradas",
+  "item.gildedarmor.gilded_enderite_helmet": "Yelmo de enderita dorado",
+  "item.gildedarmor.gilded_enderite_chestplate": "Pechera de enderita dorado",
+  "item.gildedarmor.gilded_enderite_leggings": "Yelmo de enderita doradas",
+  "item.gildedarmor.gilded_enderite_boots": "Botas de enderita doradas",
+  "item.gildedarmor.generic.upgrading_note1": "Nota: A menos que otros mods",
+  "item.gildedarmor.generic.upgrading_note2": "lo implementen, la armadura",
+  "item.gildedarmor.generic.upgrading_note3": "dorada no se puede mejorar."
+}
