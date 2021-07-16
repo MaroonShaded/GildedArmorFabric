@@ -14,6 +14,10 @@ Gilded armor makes piglins peaceful while you're using a stronger material.
 
 ![Image](https://i.imgur.com/dfW6bdg.png)
 
+To craft it, just combine the armor piece you want with a gold ingot in a smithing table. Don't worry about your enchantments: they are retained as well as durability.
+
+![Recipe](https://i.imgur.com/AfXIQ7o.png)
+
 ![Separator](https://i.imgur.com/24oOTbP.png)
 
 ## Developers
@@ -24,5 +28,10 @@ Gilded armor makes piglins peaceful while you're using a stronger material.
 - [kirechka](https://www.curseforge.com/members/kirechka) - Russian
 - [randomnickname2137](https://www.curseforge.com/members/randomnickname2137) and [Jacobs-Develop](https://github.com/Jacobs-Develop) - Polish
 - [spiderval97431](https://www.curseforge.com/members/spiderval97431) - French
+- [Moze-Yosel](https://github.com/Moze-Yosel) - Chinese
+- [zeedif](https://github.com/zeedif) - Spanish
+
+## Semantic Versioning
+This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ![Separator](https://i.imgur.com/24oOTbP.png)
