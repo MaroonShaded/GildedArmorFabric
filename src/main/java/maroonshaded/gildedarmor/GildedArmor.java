@@ -2,13 +2,17 @@ package maroonshaded.gildedarmor;
 
 import maroonshaded.gildedarmor.init.ModItems;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.tag.TagRegistry;
 import net.minecraft.item.Item;
+import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class GildedArmor implements ModInitializer
 {
     public static final String MODID = "gildedarmor";
+
+    public static final Tag<Item> PIGLIN_SAFE_ARMOR = TagRegistry.item(new Identifier(MODID, "piglin_safe_armor"));
 
     @Override
     public void onInitialize()

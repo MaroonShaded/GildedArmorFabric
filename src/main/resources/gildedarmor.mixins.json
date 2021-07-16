@@ -4,6 +4,7 @@
   "package": "maroonshaded.gildedarmor.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "PiglinBrainMixin",
     "EndermanEntityMixin"
   ],
   "injectors": {
