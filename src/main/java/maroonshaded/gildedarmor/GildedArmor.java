@@ -12,6 +12,7 @@ public class GildedArmor implements ModInitializer
 {
     public static final String MODID = "gildedarmor";
 
+    public static final Tag<Item> PIGLIN_SAFE_ARMOR = TagFactory.ITEM.create(new Identifier(MODID, "piglin_safe_armor"));
     public static final Tag<Item> ENDERITE_INGOT = TagFactory.ITEM.create(new Identifier(MODID, "enderite_ingot"));
 
     @Override
