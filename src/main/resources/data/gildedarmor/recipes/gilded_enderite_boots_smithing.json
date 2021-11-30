@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smithing",
   "base": {
-    "item": "enderitemod:enderite_boots"
+    "tag": "gildedarmor:enderite_boots"
   },
   "addition": {
     "item": "minecraft:gold_ingot"

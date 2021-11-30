@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "enderitemod:enderite_helmet"
+            "tag": "gildedarmor:enderite_helmet"
           }
         ]
       }
