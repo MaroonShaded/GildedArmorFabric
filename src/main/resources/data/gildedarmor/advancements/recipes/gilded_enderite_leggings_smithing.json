@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "enderitemod:enderite_leggings"
+            "tag": "gildedarmor:enderite_leggings"
           }
         ]
       }

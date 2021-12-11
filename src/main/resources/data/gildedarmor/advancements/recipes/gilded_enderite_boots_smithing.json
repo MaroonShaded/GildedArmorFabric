@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "enderitemod:enderite_boots"
+            "tag": "gildedarmor:enderite_boots"
           }
         ]
       }

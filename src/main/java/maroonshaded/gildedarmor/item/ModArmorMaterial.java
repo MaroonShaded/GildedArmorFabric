@@ -1,5 +1,7 @@
 package maroonshaded.gildedarmor.item;
 
+import com.google.common.base.Suppliers;
+import maroonshaded.gildedarmor.GildedArmor;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.entity.EquipmentSlot;
@@ -21,10 +23,8 @@ public enum ModArmorMaterial implements ArmorMaterial
 {
     GILDED_NETHERITE("gilded_netherite", ArmorMaterials.NETHERITE),
     GILDED_ENDERITE("gilded_enderite", 8, new int[] { 4, 7, 9, 4 }, 17, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 4.0F, 0.1F, () ->
-    {
-        Optional<Item> item = Registry.ITEM.getOrEmpty(new Identifier("enderitemod", "enderite_ingot"));
-        return item.isPresent() ? Ingredient.ofItems(item.get()) : Ingredient.ofItems();
-    }, true);
+            Ingredient.fromTag(GildedArmor.ENDERITE_INGOT),
+            true);
 
     private static final int[] BASE_DURABILITY = {13, 15, 16, 11};
     private static final int[] ENDERITE_BASE_DURABILITY = {128, 144, 160, 112};
@@ -35,7 +35,7 @@ public enum ModArmorMaterial implements ArmorMaterial
     private final SoundEvent equipSound;
     private final float toughness;
     private final float knockbackResistance;
-    private final Lazy<Ingredient> repairIngredientSupplier;
+    private final Supplier<Ingredient> repairIngredientSupplier;
 
     ModArmorMaterial(String name, int durabilityMultiplier, int[] protectionAmounts, int enchantability, SoundEvent equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredientSupplier, boolean useEnderiteDurability)
     {
@@ -46,7 +46,7 @@ public enum ModArmorMaterial implements ArmorMaterial
         this.equipSound = equipSound;
         this.toughness = toughness;
         this.knockbackResistance = knockbackResistance;
-        this.repairIngredientSupplier = new Lazy<>(repairIngredientSupplier);
+        this.repairIngredientSupplier = Suppliers.memoize(repairIngredientSupplier::get);
     }
 
     ModArmorMaterial(String name, ArmorMaterial reference)
@@ -58,7 +58,7 @@ public enum ModArmorMaterial implements ArmorMaterial
         equipSound = reference.getEquipSound();
         toughness = reference.getToughness();
         knockbackResistance = reference.getKnockbackResistance();
-        repairIngredientSupplier = new Lazy<>(reference::getRepairIngredient);
+        repairIngredientSupplier = reference::getRepairIngredient;
     }
 
     public static int[] getBaseDurability()
