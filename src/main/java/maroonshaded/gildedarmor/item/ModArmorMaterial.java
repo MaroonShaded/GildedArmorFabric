@@ -23,7 +23,7 @@ public enum ModArmorMaterial implements ArmorMaterial
 {
     GILDED_NETHERITE("gilded_netherite", ArmorMaterials.NETHERITE),
     GILDED_ENDERITE("gilded_enderite", 8, new int[] { 4, 7, 9, 4 }, 17, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 4.0F, 0.1F, () ->
-            Ingredient.fromTag(GildedArmor.ENDERITE_INGOT),
+            Ingredient.fromTag(GildedArmor.ENDERITE_INGOTS),
             true);
 
     private static final int[] BASE_DURABILITY = {13, 15, 16, 11};
