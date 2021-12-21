@@ -8,21 +8,19 @@ import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class GildedArmor implements ModInitializer
-{
+public class GildedArmor implements ModInitializer {
     public static final String MODID = "gildedarmor";
 
     public static final Tag<Item> PIGLIN_SAFE_ARMOR = TagFactory.ITEM.create(new Identifier(MODID, "piglin_safe_armor"));
     public static final Tag<Item> ENDERITE_INGOTS = TagFactory.ITEM.create(new Identifier("c", "enderite_ingots"));
 
     @Override
-    public void onInitialize()
-    {
+    public void onInitialize() {
         registerItem("gilded_netherite_helmet", ModItems.GILDED_NETHERITE_HELMET);
         registerItem("gilded_netherite_chestplate", ModItems.GILDED_NETHERITE_CHESTPLATE);
         registerItem("gilded_netherite_leggings", ModItems.GILDED_NETHERITE_LEGGINGS);
         registerItem("gilded_netherite_boots", ModItems.GILDED_NETHERITE_BOOTS);
-        
+
         // For the Enderite mod
         registerItem("gilded_enderite_helmet", ModItems.GILDED_ENDERITE_HELMET);
         registerItem("gilded_enderite_chestplate", ModItems.GILDED_ENDERITE_CHESTPLATE);
@@ -30,8 +28,7 @@ public class GildedArmor implements ModInitializer
         registerItem("gilded_enderite_boots", ModItems.GILDED_ENDERITE_BOOTS);
     }
 
-    private void registerItem(String id, Item item)
-    {
+    private void registerItem(String id, Item item) {
         Registry.register(Registry.ITEM, new Identifier(MODID, id), item);
     }
 }
