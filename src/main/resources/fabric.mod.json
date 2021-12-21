@@ -2,7 +2,6 @@
   "schemaVersion": 1,
   "id": "gildedarmor",
   "version": "${version}",
-
   "name": "Gilded Armor",
   "description": "Gilded armor makes piglins peaceful while you're using a stronger material.",
   "authors": [
@@ -13,10 +12,8 @@
     "sources": "https://github.com/MaroonShaded/GildedArmorFabric",
     "issues": "https://github.com/MaroonShaded/GildedArmorFabric/issues"
   },
-
   "license": "MIT",
   "icon": "assets/gildedarmor/icon.png",
-
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -26,11 +23,10 @@
   "mixins": [
     "gildedarmor.mixins.json"
   ],
-
   "depends": {
     "fabricloader": "*",
     "fabric": "*",
-    "minecraft": "1.17.x",
-    "java": ">=16"
+    "minecraft": "1.18.x",
+    "java": ">=17"
   }
 }

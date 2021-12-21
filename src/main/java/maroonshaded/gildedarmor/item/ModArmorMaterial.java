@@ -14,10 +14,9 @@ import net.minecraft.sound.SoundEvents;
 import java.util.function.Supplier;
 import java.util.function.ToIntFunction;
 
-public enum ModArmorMaterial implements ArmorMaterial
-{
+public enum ModArmorMaterial implements ArmorMaterial {
     GILDED_NETHERITE("gilded_netherite", ArmorMaterials.NETHERITE),
-    GILDED_ENDERITE("gilded_enderite", 8, new int[] { 4, 7, 9, 4 }, 17, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 4.0F, 0.1F,
+    GILDED_ENDERITE("gilded_enderite", 8, new int[]{4, 7, 9, 4}, 17, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 4.0F, 0.1F,
             () -> Ingredient.fromTag(GildedArmor.ENDERITE_INGOTS),
             true);
 
@@ -32,8 +31,7 @@ public enum ModArmorMaterial implements ArmorMaterial
     private final float knockbackResistance;
     private final Supplier<Ingredient> repairIngredientSupplier;
 
-    ModArmorMaterial(String name, int durabilityMultiplier, int[] protectionAmounts, int enchantability, SoundEvent equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredientSupplier, boolean useEnderiteDurability)
-    {
+    ModArmorMaterial(String name, int durabilityMultiplier, int[] protectionAmounts, int enchantability, SoundEvent equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredientSupplier, boolean useEnderiteDurability) {
         this.name = name;
         durability = (slot) -> (useEnderiteDurability ? getEnderiteBaseDurability() : getBaseDurability())[slot.getEntitySlotId()] * durabilityMultiplier;
         protectionAmount = (slot) -> protectionAmounts[slot.getEntitySlotId()];
@@ -44,8 +42,7 @@ public enum ModArmorMaterial implements ArmorMaterial
         this.repairIngredientSupplier = Suppliers.memoize(repairIngredientSupplier::get);
     }
 
-    ModArmorMaterial(String name, ArmorMaterial reference)
-    {
+    ModArmorMaterial(String name, ArmorMaterial reference) {
         this.name = name;
         durability = reference::getDurability;
         protectionAmount = reference::getProtectionAmount;
@@ -56,62 +53,52 @@ public enum ModArmorMaterial implements ArmorMaterial
         repairIngredientSupplier = reference::getRepairIngredient;
     }
 
-    public static int[] getBaseDurability()
-    {
+    public static int[] getBaseDurability() {
         return BASE_DURABILITY;
     }
 
-    public static int[] getEnderiteBaseDurability()
-    {
+    public static int[] getEnderiteBaseDurability() {
         return ENDERITE_BASE_DURABILITY;
     }
 
     @Override
-    public int getDurability(EquipmentSlot slot)
-    {
+    public int getDurability(EquipmentSlot slot) {
         return durability.applyAsInt(slot);
     }
 
     @Override
-    public int getProtectionAmount(EquipmentSlot slot)
-    {
+    public int getProtectionAmount(EquipmentSlot slot) {
         return protectionAmount.applyAsInt(slot);
     }
 
     @Override
-    public int getEnchantability()
-    {
+    public int getEnchantability() {
         return enchantability;
     }
 
     @Override
-    public SoundEvent getEquipSound()
-    {
+    public SoundEvent getEquipSound() {
         return equipSound;
     }
 
     @Override
-    public Ingredient getRepairIngredient()
-    {
+    public Ingredient getRepairIngredient() {
         return repairIngredientSupplier.get();
     }
 
     @Environment(EnvType.CLIENT)
     @Override
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
     @Override
-    public float getToughness()
-    {
+    public float getToughness() {
         return toughness;
     }
 
     @Override
-    public float getKnockbackResistance()
-    {
+    public float getKnockbackResistance() {
         return knockbackResistance;
     }
 }

@@ -7,8 +7,7 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 
-public class ModItems
-{
+public class ModItems {
     public static final Item GILDED_NETHERITE_HELMET = new GildedArmorItem(ModArmorMaterial.GILDED_NETHERITE, EquipmentSlot.HEAD, new Item.Settings().group(ItemGroup.COMBAT).fireproof());
     public static final Item GILDED_NETHERITE_CHESTPLATE = new GildedArmorItem(ModArmorMaterial.GILDED_NETHERITE, EquipmentSlot.CHEST, new Item.Settings().group(ItemGroup.COMBAT).fireproof());
     public static final Item GILDED_NETHERITE_LEGGINGS = new GildedArmorItem(ModArmorMaterial.GILDED_NETHERITE, EquipmentSlot.LEGS, new Item.Settings().group(ItemGroup.COMBAT).fireproof());

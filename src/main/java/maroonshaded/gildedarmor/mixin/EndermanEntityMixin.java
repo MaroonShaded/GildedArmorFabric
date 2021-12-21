@@ -11,11 +11,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @SuppressWarnings("unused")
 @Mixin(EndermanEntity.class)
-public class EndermanEntityMixin
-{
+public class EndermanEntityMixin {
     @Inject(at = @At("HEAD"), cancellable = true, method = "isPlayerStaring")
-    private void isPlayerStaring(PlayerEntity player, CallbackInfoReturnable<Boolean> info)
-    {
+    private void isPlayerStaring(PlayerEntity player, CallbackInfoReturnable<Boolean> info) {
         if (player.getEquippedStack(EquipmentSlot.HEAD).getItem() instanceof GildedEnderiteHelmetItem)
             info.setReturnValue(false);
     }
