@@ -15,10 +15,12 @@ import java.util.Iterator;
 
 @SuppressWarnings("unused")
 @Mixin(PiglinBrain.class)
-public class PiglinBrainMixin {
+public class PiglinBrainMixin
+{
     @SuppressWarnings("rawtypes")
     @Inject(method = "wearsGoldArmor", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/item/ItemStack;getItem()Lnet/minecraft/item/Item;"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
-    private static void wearsGoldArmor(LivingEntity entity, CallbackInfoReturnable<Boolean> info, Iterable<ItemStack> iterable, Iterator iterator, ItemStack stack, Item item) {
+    private static void wearsGoldArmor(LivingEntity entity, CallbackInfoReturnable<Boolean> info, Iterable<ItemStack> iterable, Iterator iterator, ItemStack stack, Item item)
+    {
         if (stack.isIn(GildedArmor.PIGLIN_SAFE_ARMOR)) info.setReturnValue(true);
     }
 }
