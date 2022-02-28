@@ -7,10 +7,16 @@ import net.fabricmc.api.Environment;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ArmorMaterials;
+import net.minecraft.item.Item;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.tag.ItemTags;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.Lazy;
+import net.minecraft.util.registry.Registry;
 
+import java.util.Optional;
 import java.util.function.Supplier;
 import java.util.function.ToIntFunction;
 
@@ -18,7 +24,7 @@ public enum ModArmorMaterial implements ArmorMaterial
 {
     GILDED_NETHERITE("gilded_netherite", ArmorMaterials.NETHERITE),
     GILDED_ENDERITE("gilded_enderite", 8, new int[] { 4, 7, 9, 4 }, 17, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 4.0F, 0.1F,
-            () -> Ingredient.fromTag(GildedArmor.ENDERITE_INGOTS),
+            () -> Ingredient.fromTag(GildedArmor.ENDERITE_INGOT),
             true);
 
     private static final int[] BASE_DURABILITY = {13, 15, 16, 11};
