@@ -2,9 +2,8 @@ package maroonshaded.gildedarmor;
 
 import maroonshaded.gildedarmor.init.ModItems;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.tag.TagFactory;
 import net.minecraft.item.Item;
-import net.minecraft.tag.Tag;
+import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -12,8 +11,8 @@ public class GildedArmor implements ModInitializer
 {
     public static final String MODID = "gildedarmor";
 
-    public static final Tag<Item> PIGLIN_SAFE_ARMOR = TagFactory.ITEM.create(new Identifier(MODID, "piglin_safe_armor"));
-    public static final Tag<Item> ENDERITE_INGOT = TagFactory.ITEM.create(new Identifier(MODID, "enderite_ingot"));
+    public static final TagKey<Item> PIGLIN_SAFE_ARMOR = TagKey.of(Registry.ITEM_KEY, new Identifier(MODID, "piglin_safe_armor"));
+    public static final TagKey<Item> ENDERITE_INGOT = TagKey.of(Registry.ITEM_KEY, new Identifier(MODID, "enderite_ingot"));
 
     @Override
     public void onInitialize()
