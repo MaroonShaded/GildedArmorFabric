@@ -1,12 +1,20 @@
 {
   "type": "minecraft:smithing",
   "base": {
-    "tag": "gildedarmor:enderite_helmet"
+    "item": "enderitemod:enderite_helmet"
   },
   "addition": {
     "item": "minecraft:gold_ingot"
   },
   "result": {
     "item": "gildedarmor:gilded_enderite_helmet"
-  }
+  },
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "enderitemod"
+      ]
+    }
+  ]
 }

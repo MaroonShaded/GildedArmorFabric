@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "gildedarmor:enderite_leggings"
+            "item": "enderitemod:enderite_leggings"
           }
         ]
       }
@@ -28,5 +28,13 @@
       "has_enderite_leggings",
       "has_the_recipe"
     ]
+  ],
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "enderitemod"
+      ]
+    }
   ]
 }
