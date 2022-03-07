@@ -19,7 +19,7 @@ public class PiglinBrainMixin
 {
     @SuppressWarnings("rawtypes")
     @Inject(method = "wearsGoldArmor", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/item/ItemStack;getItem()Lnet/minecraft/item/Item;"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
-    public static void wearsGoldArmor(LivingEntity entity, CallbackInfoReturnable<Boolean> info, Iterable<ItemStack> iterable, Iterator iterator, ItemStack stack, Item item)
+    private static void wearsGoldArmor(LivingEntity entity, CallbackInfoReturnable<Boolean> info, Iterable<ItemStack> iterable, Iterator iterator, ItemStack stack, Item item)
     {
         if (item.isIn(GildedArmor.PIGLIN_SAFE_ARMOR)) info.setReturnValue(true);
     }
