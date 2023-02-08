@@ -6,8 +6,5 @@
   "item.gildedarmor.gilded_enderite_helmet": "Casque en Enderite doré",
   "item.gildedarmor.gilded_enderite_chestplate": "Plastron en Enderite doré",
   "item.gildedarmor.gilded_enderite_leggings": "Jambières en Enderite dorées",
-  "item.gildedarmor.gilded_enderite_boots": "Bottes en Enderite dorées",
-  "item.gildedarmor.generic.upgrading_note1": "Note: Sauf si implémenté par",
-  "item.gildedarmor.generic.upgrading_note2": "d'autres Mods, les armures dorées",
-  "item.gildedarmor.generic.upgrading_note3": "ne peuvent pas être améliorées."
+  "item.gildedarmor.gilded_enderite_boots": "Bottes en Enderite dorées"
 }
