@@ -27,10 +27,11 @@ To craft it, just combine the armor piece you want with a gold ingot in a smithi
 ### Translators
 - [MaroonShaded](https://www.curseforge.com/members/maroonshaded) - Portuguese
 - [kirechka](https://www.curseforge.com/members/kirechka) - Russian
-- [randomnickname2137](https://www.curseforge.com/members/randomnickname2137) and [Jacobs-Develop](https://github.com/Jacobs-Develop) - Polish
+- [randomnickname2137](https://www.curseforge.com/members/randomnickname2137) and [0x4352430A](https://github.com/0x4352430A) - Polish
 - [spiderval97431](https://www.curseforge.com/members/spiderval97431) - French
 - [Moze-Yosel](https://github.com/Moze-Yosel) - Chinese
 - [zeedif](https://github.com/zeedif) - Spanish
+- [MaroonShaded](https://www.curseforge.com/members/maroonshaded) - Toki Pona
 
 ## Semantic Versioning
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
