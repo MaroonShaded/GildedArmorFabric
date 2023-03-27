@@ -1,17 +1,14 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "gildedarmor:gilded_netherite_leggings_smithing"
-    ]
-  },
   "criteria": {
-    "has_netherite_leggings": {
+    "has_netherite_helmet": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "minecraft:netherite_leggings"
+            "items": [
+              "minecraft:netherite_helmet"
+            ]
           }
         ]
       }
@@ -19,14 +16,19 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "gildedarmor:gilded_netherite_leggings_smithing"
+        "recipe": "gildedarmor:gilded_netherite_helmet_smithing"
       }
     }
   },
   "requirements": [
     [
-      "has_netherite_leggings",
+      "has_netherite_helmet",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gildedarmor:gilded_netherite_helmet_smithing"
+    ]
+  }
 }

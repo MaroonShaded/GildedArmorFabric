@@ -1,17 +1,14 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "gildedarmor:gilded_enderite_leggings_smithing"
-    ]
-  },
   "criteria": {
     "has_enderite_leggings": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "enderitemod:enderite_leggings"
+            "items": [
+              "enderitemod:enderite_leggings"
+            ]
           }
         ]
       }
@@ -29,6 +26,11 @@
       "has_the_recipe"
     ]
   ],
+  "rewards": {
+    "recipes": [
+      "gildedarmor:gilded_enderite_leggings_smithing"
+    ]
+  },
   "fabric:load_conditions": [
     {
       "condition": "fabric:all_mods_loaded",

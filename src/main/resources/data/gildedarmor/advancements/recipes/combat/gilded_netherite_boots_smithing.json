@@ -1,17 +1,14 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "gildedarmor:gilded_netherite_helmet_smithing"
-    ]
-  },
   "criteria": {
-    "has_netherite_helmet": {
+    "has_netherite_boots": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "minecraft:netherite_helmet"
+            "items": [
+              "minecraft:netherite_boots"
+            ]
           }
         ]
       }
@@ -19,14 +16,19 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "gildedarmor:gilded_netherite_helmet_smithing"
+        "recipe": "gildedarmor:gilded_netherite_boots_smithing"
       }
     }
   },
   "requirements": [
     [
-      "has_netherite_helmet",
+      "has_netherite_boots",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gildedarmor:gilded_netherite_boots_smithing"
+    ]
+  }
 }

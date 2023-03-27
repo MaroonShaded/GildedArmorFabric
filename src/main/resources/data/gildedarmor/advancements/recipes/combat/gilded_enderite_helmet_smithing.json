@@ -1,17 +1,14 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "gildedarmor:gilded_enderite_chestplate_smithing"
-    ]
-  },
   "criteria": {
-    "has_enderite_chestplate": {
+    "has_enderite_helmet": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "enderitemod:enderite_chestplate"
+            "items": [
+              "enderitemod:enderite_helmet"
+            ]
           }
         ]
       }
@@ -19,16 +16,21 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "gildedarmor:gilded_enderite_chestplate_smithing"
+        "recipe": "gildedarmor:gilded_enderite_helmet_smithing"
       }
     }
   },
   "requirements": [
     [
-      "has_enderite_chestplate",
+      "has_enderite_helmet",
       "has_the_recipe"
     ]
   ],
+  "rewards": {
+    "recipes": [
+      "gildedarmor:gilded_enderite_helmet_smithing"
+    ]
+  },
   "fabric:load_conditions": [
     {
       "condition": "fabric:all_mods_loaded",
