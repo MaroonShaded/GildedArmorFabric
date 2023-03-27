@@ -1,17 +1,14 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "gildedarmor:gilded_netherite_boots_smithing"
-    ]
-  },
   "criteria": {
     "has_netherite_boots": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "minecraft:netherite_boots"
+            "items": [
+              "minecraft:netherite_boots"
+            ]
           }
         ]
       }
@@ -28,5 +25,10 @@
       "has_netherite_boots",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gildedarmor:gilded_netherite_boots_smithing"
+    ]
+  }
 }
