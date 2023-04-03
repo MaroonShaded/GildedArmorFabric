@@ -35,8 +35,8 @@ public enum ModArmorMaterial implements ArmorMaterial
     ModArmorMaterial(String name, int durabilityMultiplier, int[] protectionAmounts, int enchantability, SoundEvent equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredientSupplier, boolean useEnderiteDurability)
     {
         this.name = name;
-        durability = slot -> (useEnderiteDurability ? getEnderiteBaseDurability() : getBaseDurability())[slot.getEntitySlotId()] * durabilityMultiplier;
-        protectionAmount = slot -> protectionAmounts[slot.getEntitySlotId()];
+        durability = (slot) -> (useEnderiteDurability ? getEnderiteBaseDurability() : getBaseDurability())[slot.getEntitySlotId()] * durabilityMultiplier;
+        protectionAmount = (slot) -> protectionAmounts[slot.getEntitySlotId()];
         this.enchantability = enchantability;
         this.equipSound = equipSound;
         this.toughness = toughness;
