@@ -15,7 +15,7 @@ import net.minecraft.util.Identifier;
 public class GildedArmor implements ModInitializer
 {
     public static final String MODID = "gildedarmor";
-    public static final String ENDERITE_MOD_MODID = "gildedarmor";
+    public static final String ENDERITE_MOD_MODID = "enderitemod";
 
     public static final Identifier ENDERITE_GROUP = new Identifier(ENDERITE_MOD_MODID, "enderite_group");
 
