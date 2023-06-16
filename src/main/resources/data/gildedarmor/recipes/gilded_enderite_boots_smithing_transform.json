@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "gildedarmor:gilding_upgrade_smithing_template"
+  },
+  "base": {
+    "item": "enderitemod:enderite_boots"
+  },
+  "addition": {
+    "item": "minecraft:gold_ingot"
+  },
+  "result": {
+    "item": "gildedarmor:gilded_enderite_boots"
+  },
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "enderitemod"
+      ]
+    }
+  ]
+}

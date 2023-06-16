@@ -19,13 +19,17 @@ public class GildedArmor implements ModInitializer
 
     public static final Identifier ENDERITE_GROUP = new Identifier(ENDERITE_MOD_MODID, "enderite_group");
 
-    public static final TagKey<Item> PIGLIN_SAFE_ARMOR = TagKey.of(RegistryKeys.ITEM, new Identifier(MODID, "piglin_safe_armor"));
-    public static final TagKey<Item> ENDERITE_INGOT = TagKey.of(RegistryKeys.ITEM, new Identifier(MODID, "enderite_ingot"));
+    public static final TagKey<Item> GILDED_ARMOR = TagKey.of(RegistryKeys.ITEM, identifier("gilded_armor"));
+    public static final TagKey<Item> ENDERITE_INGOT = TagKey.of(RegistryKeys.ITEM, identifier("enderite_ingot"));
 
     @Override
     public void onInitialize()
     {
         ModItems.ITEMS.forEach(this::registerItem);
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries ->
+                entries.addAfter(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE, ModItems.GILDING_UPGRADE_SMITHING_TEMPLATE)
+        );
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries ->
                 entries.addAfter(Items.NETHERITE_BOOTS,
@@ -52,6 +56,11 @@ public class GildedArmor implements ModInitializer
 
     private void registerItem(String id, Item item)
     {
-        Registry.register(Registries.ITEM, new Identifier(MODID, id), item);
+        Registry.register(Registries.ITEM, identifier(id), item);
+    }
+
+    public static Identifier identifier(String path)
+    {
+        return new Identifier(MODID, path);
     }
 }

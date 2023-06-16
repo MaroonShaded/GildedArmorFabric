@@ -1,0 +1,7 @@
+accessWidener   v1  named
+
+accessible field net/minecraft/item/SmithingTemplateItem TITLE_FORMATTING Lnet/minecraft/util/Formatting;
+accessible field net/minecraft/item/SmithingTemplateItem DESCRIPTION_FORMATTING Lnet/minecraft/util/Formatting;
+accessible method net/minecraft/item/SmithingTemplateItem getArmorTrimEmptyBaseSlotTextures ()Ljava/util/List;
+accessible method net/minecraft/item/SmithingTemplateItem getNetheriteUpgradeEmptyAdditionsSlotTextures ()Ljava/util/List;
+mutable field net/minecraft/item/ArmorMaterials CODEC Lnet/minecraft/util/StringIdentifiable$Codec;

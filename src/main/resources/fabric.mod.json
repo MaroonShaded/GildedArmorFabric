@@ -27,11 +27,20 @@
   "mixins": [
     "gildedarmor.mixins.json"
   ],
+  "accessWidener": "gildedarmor.accesswidener",
 
   "depends": {
     "fabricloader": ">=0.14.6",
     "fabric-api": "*",
-    "minecraft": "1.19.3",
+    "minecraft": "1.19.4",
     "java": ">=17"
+  },
+
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.gg/K5SGZvPyxp"
+      }
+    }
   }
 }

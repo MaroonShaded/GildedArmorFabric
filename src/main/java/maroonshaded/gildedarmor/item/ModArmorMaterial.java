@@ -4,39 +4,65 @@ import com.google.common.base.Suppliers;
 import maroonshaded.gildedarmor.GildedArmor;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.ArmorMaterials;
+import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.StringIdentifiable;
+import net.minecraft.util.Util;
 
+import java.util.EnumMap;
 import java.util.function.Supplier;
-import java.util.function.ToIntFunction;
 
-public enum ModArmorMaterial implements ArmorMaterial
+public enum ModArmorMaterial implements StringIdentifiable, ArmorMaterial
 {
-    GILDED_NETHERITE("gilded_netherite", ArmorMaterials.NETHERITE),
-    GILDED_ENDERITE("gilded_enderite", 8, new int[] { 4, 7, 9, 4 }, 17, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 4.0F, 0.1F,
-            () -> Ingredient.fromTag(GildedArmor.ENDERITE_INGOT),
-            true);
+    GILDED_NETHERITE("gilded_netherite", 37, Util.make(new EnumMap<>(ArmorItem.Type.class), map ->
+    {
+        map.put(ArmorItem.Type.BOOTS, 3);
+        map.put(ArmorItem.Type.LEGGINGS, 6);
+        map.put(ArmorItem.Type.CHESTPLATE, 8);
+        map.put(ArmorItem.Type.HELMET, 3);
+    }), 17, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F,
+            () -> Ingredient.ofItems(Items.NETHERITE_INGOT), true),
+    GILDED_ENDERITE("gilded_enderite", 8, Util.make(new EnumMap<>(ArmorItem.Type.class), map ->
+    {
+        map.put(ArmorItem.Type.BOOTS, 4);
+        map.put(ArmorItem.Type.LEGGINGS, 7);
+        map.put(ArmorItem.Type.CHESTPLATE, 9);
+        map.put(ArmorItem.Type.HELMET, 4);
+    }), 17, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 4.0F, 0.1F,
+            () -> Ingredient.fromTag(GildedArmor.ENDERITE_INGOT), true);
 
-    private static final int[] BASE_DURABILITY = {13, 15, 16, 11};
-    private static final int[] ENDERITE_BASE_DURABILITY = {128, 144, 160, 112};
+    private static final EnumMap<ArmorItem.Type, Integer> BASE_DURABILITY = Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
+        map.put(ArmorItem.Type.BOOTS, 13);
+        map.put(ArmorItem.Type.LEGGINGS, 15);
+        map.put(ArmorItem.Type.CHESTPLATE, 16);
+        map.put(ArmorItem.Type.HELMET, 11);
+    });
+    private static final EnumMap<ArmorItem.Type, Integer> ENDERITE_BASE_DURABILITY = Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
+        map.put(ArmorItem.Type.BOOTS, 128);
+        map.put(ArmorItem.Type.LEGGINGS, 144);
+        map.put(ArmorItem.Type.CHESTPLATE, 160);
+        map.put(ArmorItem.Type.HELMET, 112);
+    });
     private final String name;
-    private final ToIntFunction<EquipmentSlot> durability;
-    private final ToIntFunction<EquipmentSlot> protectionAmount;
+    private final int durabilityMultiplier;
+    private final boolean useEnderiteDurability;
+    private final EnumMap<ArmorItem.Type, Integer> protectionAmounts;
     private final int enchantability;
     private final SoundEvent equipSound;
     private final float toughness;
     private final float knockbackResistance;
     private final Supplier<Ingredient> repairIngredientSupplier;
 
-    ModArmorMaterial(String name, int durabilityMultiplier, int[] protectionAmounts, int enchantability, SoundEvent equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredientSupplier, boolean useEnderiteDurability)
+    ModArmorMaterial(String name, int durabilityMultiplier, EnumMap<ArmorItem.Type, Integer> protectionAmounts, int enchantability, SoundEvent equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredientSupplier, boolean useEnderiteDurability)
     {
         this.name = name;
-        durability = slot -> (useEnderiteDurability ? getEnderiteBaseDurability() : getBaseDurability())[slot.getEntitySlotId()] * durabilityMultiplier;
-        protectionAmount = slot -> protectionAmounts[slot.getEntitySlotId()];
+        this.durabilityMultiplier = durabilityMultiplier;
+        this.useEnderiteDurability = useEnderiteDurability;
+        this.protectionAmounts = protectionAmounts;
         this.enchantability = enchantability;
         this.equipSound = equipSound;
         this.toughness = toughness;
@@ -44,38 +70,15 @@ public enum ModArmorMaterial implements ArmorMaterial
         this.repairIngredientSupplier = Suppliers.memoize(repairIngredientSupplier::get);
     }
 
-    ModArmorMaterial(String name, ArmorMaterial reference)
-    {
-        this.name = name;
-        durability = reference::getDurability;
-        protectionAmount = reference::getProtectionAmount;
-        enchantability = reference.getEnchantability();
-        equipSound = reference.getEquipSound();
-        toughness = reference.getToughness();
-        knockbackResistance = reference.getKnockbackResistance();
-        repairIngredientSupplier = reference::getRepairIngredient;
-    }
-
-    public static int[] getBaseDurability()
-    {
-        return BASE_DURABILITY;
-    }
-
-    public static int[] getEnderiteBaseDurability()
-    {
-        return ENDERITE_BASE_DURABILITY;
+    @Override
+    public int getDurability(ArmorItem.Type type) {
+        EnumMap<ArmorItem.Type, Integer> baseDurabilityMap = useEnderiteDurability ? ENDERITE_BASE_DURABILITY : BASE_DURABILITY;
+        return baseDurabilityMap.get(type) * durabilityMultiplier;
     }
 
     @Override
-    public int getDurability(EquipmentSlot slot)
-    {
-        return durability.applyAsInt(slot);
-    }
-
-    @Override
-    public int getProtectionAmount(EquipmentSlot slot)
-    {
-        return protectionAmount.applyAsInt(slot);
+    public int getProtection(ArmorItem.Type type) {
+        return protectionAmounts.get(type);
     }
 
     @Override
@@ -114,4 +117,14 @@ public enum ModArmorMaterial implements ArmorMaterial
     {
         return knockbackResistance;
     }
+
+    /**
+     * {@return the unique string representation of the enum, used for serialization}
+     */
+    @Override
+    public String asString() {
+        return getName();
+    }
+
+
 }
