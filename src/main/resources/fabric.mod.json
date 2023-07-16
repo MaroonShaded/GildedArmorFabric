@@ -22,6 +22,9 @@
   "entrypoints": {
     "main": [
       "maroonshaded.gildedarmor.GildedArmor"
+    ],
+    "client": [
+      "maroonshaded.gildedarmor.GildedArmorClient"
     ]
   },
   "mixins": [
