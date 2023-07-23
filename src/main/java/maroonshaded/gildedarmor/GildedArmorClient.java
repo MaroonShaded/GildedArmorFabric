@@ -28,9 +28,11 @@ public class GildedArmorClient implements ClientModInitializer
                 .render(stack ->
                         {
                             boolean useVanillaTextures = DetailArmorBar.getConfig().getOptions().toggleVanillaTexture;
+                            int y = useVanillaTextures ? 18 : 9;
+
                             return new ArmorBarRenderManager(ARMOR_BAR_TEXTURE, 32, 32,
-                                    new TextureOffset(9, useVanillaTextures ? 18 : 9),
-                                    new TextureOffset(0, useVanillaTextures ? 18 : 9),
+                                    new TextureOffset(9, y),
+                                    new TextureOffset(0, y),
                                     outline, outlineHalf);
                         }
                 )
