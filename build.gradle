@@ -13,10 +13,15 @@ repositories {
 	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
 	// for more information about repositories.
 
-	maven {
-		url "https://cursemaven.com"
-		content {
-			includeGroup "curse.maven"
+	exclusiveContent {
+		forRepository {
+			maven {
+				name = "Modrinth"
+				url = "https://api.modrinth.com/maven"
+			}
+		}
+		filter {
+			includeGroup "maven.modrinth"
 		}
 	}
 }
@@ -35,7 +40,8 @@ dependencies {
 
 	// modImplementation "net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}"
 
-	modImplementation "curse.maven:detailab-506898:4584467"
+	// Detail Armor Bar (https://modrinth.com/mod/detail-armor-bar)
+	modImplementation "maven.modrinth:detail-armor-bar:${detailab_version}"
 }
 
 loom {
