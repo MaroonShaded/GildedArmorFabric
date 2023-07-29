@@ -11,7 +11,7 @@ import net.minecraft.util.Identifier;
 
 public class GildedArmorClient implements ClientModInitializer
 {
-    private static final Identifier ARMOR_BAR_TEXTURE = GildedArmor.identifier("textures/armor_bar.png");
+    private static final Identifier ARMOR_BAR_TEXTURE = GildedArmor.identifier("textures/gui/armor_bar.png");
 
     @Override
     public void onInitializeClient()
