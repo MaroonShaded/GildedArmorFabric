@@ -6,6 +6,10 @@ plugins {
 version = project.mod_version
 group = project.maven_group
 
+base {
+	archivesName = project.archives_base_name
+}
+
 repositories {
 	// Add repositories to retrieve artifacts from in here.
 	// You should only use this when depending on other mods because
@@ -41,15 +45,11 @@ dependencies {
 	// modImplementation "net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}"
 
 	// Detail Armor Bar (https://modrinth.com/mod/detail-armor-bar)
-	modImplementation "maven.modrinth:detail-armor-bar:${detailab_version}"
+	modCompileOnly "maven.modrinth:detail-armor-bar:${detailab_version}"
 }
 
 loom {
 	accessWidenerPath = file("src/main/resources/gildedarmor.accesswidener")
-}
-
-base {
-	archivesName = project.archives_base_name
 }
 
 processResources {
@@ -61,7 +61,6 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-	// Minecraft 1.18 (1.18-pre2) upwards uses Java 17.
 	it.options.release = 17
 }
 
@@ -77,7 +76,7 @@ java {
 
 jar {
 	from("LICENSE") {
-		rename { "${it}_${base.archivesName.get()}"}
+		rename { "${it}_${project.base.archivesName.get()}"}
 	}
 }
 
