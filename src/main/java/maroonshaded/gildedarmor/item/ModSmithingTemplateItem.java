@@ -21,8 +21,8 @@ public class ModSmithingTemplateItem extends SmithingTemplateItem
         super(pAppliesTo, pIngredients, pUpgradeDescription, pBaseSlotDescription, pAdditionsSlotDescription, pBaseSlotEmptyIcons, pAdditionalSlotEmptyIcons);
     }
 
-    public static SmithingTemplateItem createGildingUpgradeTemplate()
+    public static ModSmithingTemplateItem createGildingUpgradeTemplate()
     {
-        return new SmithingTemplateItem(GILDING_UPGRADE_APPLIES_TO, GILDING_UPGRADE_INGREDIENTS, GILDING_UPGRADE, GILDING_UPGRADE_BASE_SLOT_DESCRIPTION, GILDING_UPGRADE_ADDITIONS_SLOT_DESCRIPTION, getArmorTrimEmptyBaseSlotTextures(), getNetheriteUpgradeEmptyAdditionsSlotTextures());
+        return new ModSmithingTemplateItem(GILDING_UPGRADE_APPLIES_TO, GILDING_UPGRADE_INGREDIENTS, GILDING_UPGRADE, GILDING_UPGRADE_BASE_SLOT_DESCRIPTION, GILDING_UPGRADE_ADDITIONS_SLOT_DESCRIPTION, getArmorTrimEmptyBaseSlotTextures(), getNetheriteUpgradeEmptyAdditionsSlotTextures());
     }
 }
