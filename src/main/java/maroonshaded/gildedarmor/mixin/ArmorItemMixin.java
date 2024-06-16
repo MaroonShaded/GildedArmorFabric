@@ -2,7 +2,7 @@ package maroonshaded.gildedarmor.mixin;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import maroonshaded.gildedarmor.item.ModArmorMaterial;
+import maroonshaded.gildedarmor.item.ModArmorMaterials;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -30,7 +30,7 @@ public abstract class ArmorItemMixin
 	@Inject(method = "<init>", at = @At(value = "RETURN"))
 	private void constructor(ArmorMaterial material, ArmorItem.Type type, Item.Settings settings, CallbackInfo info)
 	{
-		if (material instanceof ModArmorMaterial)
+		if (material instanceof ModArmorMaterials)
 		{
 			ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
 			builder.putAll(attributeModifiers);
