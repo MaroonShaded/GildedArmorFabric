@@ -3,6 +3,7 @@ package maroonshaded.gildedarmor;
 import maroonshaded.gildedarmor.init.ModItems;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
@@ -34,19 +35,23 @@ public class GildedArmor implements ModInitializer
                 entries.addAfter(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE, ModItems.GILDING_UPGRADE_SMITHING_TEMPLATE)
         );
 
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries ->
-                entries.addAfter(Items.NETHERITE_BOOTS,
-                        ModItems.GILDED_NETHERITE_HELMET,
-                        ModItems.GILDED_NETHERITE_CHESTPLATE,
-                        ModItems.GILDED_NETHERITE_LEGGINGS,
-                        ModItems.GILDED_NETHERITE_BOOTS,
-
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
+            entries.addAfter(Items.NETHERITE_BOOTS,
+                    ModItems.GILDED_NETHERITE_HELMET,
+                    ModItems.GILDED_NETHERITE_CHESTPLATE,
+                    ModItems.GILDED_NETHERITE_LEGGINGS,
+                    ModItems.GILDED_NETHERITE_BOOTS
+            );
+            if (FabricLoader.getInstance().isModLoaded(ENDERITE_MOD_MODID))
+            {
+                entries.addAfter(ModItems.GILDED_NETHERITE_BOOTS,
                         ModItems.GILDED_ENDERITE_HELMET,
                         ModItems.GILDED_ENDERITE_CHESTPLATE,
                         ModItems.GILDED_ENDERITE_LEGGINGS,
                         ModItems.GILDED_ENDERITE_BOOTS
-                )
-        );
+                );
+            }
+        });
         ItemGroupEvents.modifyEntriesEvent(ENDERITE_GROUP).register(entries ->
                 entries.addAfter(Registries.ITEM.get(new Identifier(ENDERITE_MOD_MODID, "enderite_boots")),
                         ModItems.GILDED_ENDERITE_HELMET,
