@@ -2,5 +2,13 @@
   "item.gildedarmor.gilded_netherite_helmet": "len lawa pimeja mani",
   "item.gildedarmor.gilded_netherite_chestplate": "len sijelo pimeja mani",
   "item.gildedarmor.gilded_netherite_leggings": "len noka pimeja mani",
-  "item.gildedarmor.gilded_netherite_boots": "len noka anpa pimeja mani"
+  "item.gildedarmor.gilded_netherite_boots": "len noka anpa pimeja mani",
+  "item.gildedarmor.gilding_upgrade_smithing_template": "lipu pi namako len",
+
+  "item.gildedarmor.smithing_template.gilding_upgrade.applies_to": "len pi mani Netherite (pi mani Enderite)",
+  "item.gildedarmor.smithing_template.gilding_upgrade.ingredients": "kiwen jelo",
+  "item.gildedarmor.smithing_template.gilding_upgrade.base_slot_description": "o pana e len pi mani Netherite (anu mani Enderite)",
+  "item.gildedarmor.smithing_template.gilding_upgrade.additions_slot_description": "o pana e kiwen jelo",
+
+  "upgrade.gildedarmor.gilding_upgrade": "namako len wawa mani"
 }

@@ -6,5 +6,13 @@
   "item.gildedarmor.gilded_enderite_helmet": "Yelmo de enderita dorado",
   "item.gildedarmor.gilded_enderite_chestplate": "Pechera de enderita dorado",
   "item.gildedarmor.gilded_enderite_leggings": "Yelmo de enderita doradas",
-  "item.gildedarmor.gilded_enderite_boots": "Botas de enderita doradas"
+  "item.gildedarmor.gilded_enderite_boots": "Botas de enderita doradas",
+  "item.gildedarmor.gilding_upgrade_smithing_template": "Plantilla de herrería",
+
+  "item.gildedarmor.smithing_template.gilding_upgrade.applies_to": "Equipamiento de netherita (y enderita)",
+  "item.gildedarmor.smithing_template.gilding_upgrade.ingredients": "Lingote de oro",
+  "item.gildedarmor.smithing_template.gilding_upgrade.base_slot_description": "Coloca una amardura de netherita (o enderita)",
+  "item.gildedarmor.smithing_template.gilding_upgrade.additions_slot_description": "Coloca un lingote de oro",
+
+  "upgrade.gildedarmor.gilding_upgrade": "Mejora de dorado"
 }

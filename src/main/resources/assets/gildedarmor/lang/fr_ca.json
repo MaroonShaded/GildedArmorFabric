@@ -1,10 +1,18 @@
 {
-  "item.gildedarmor.gilded_netherite_helmet": "Casque en Netherite doré",
-  "item.gildedarmor.gilded_netherite_chestplate": "Plastron en Netherite doré",
-  "item.gildedarmor.gilded_netherite_leggings": "Jambières en Netherite dorées",
-  "item.gildedarmor.gilded_netherite_boots": "Bottes en Netherite dorées",
-  "item.gildedarmor.gilded_enderite_helmet": "Casque en Enderite doré",
-  "item.gildedarmor.gilded_enderite_chestplate": "Plastron en Enderite doré",
-  "item.gildedarmor.gilded_enderite_leggings": "Jambières en Enderite dorées",
-  "item.gildedarmor.gilded_enderite_boots": "Bottes en Enderite dorées"
+  "item.gildedarmor.gilded_netherite_helmet": "Casque en netherite doré",
+  "item.gildedarmor.gilded_netherite_chestplate": "Plastron en netherite doré",
+  "item.gildedarmor.gilded_netherite_leggings": "Jambières en netherite dorées",
+  "item.gildedarmor.gilded_netherite_boots": "Bottes en netherite dorées",
+  "item.gildedarmor.gilded_enderite_helmet": "Casque en enderite doré",
+  "item.gildedarmor.gilded_enderite_chestplate": "Plastron en enderite doré",
+  "item.gildedarmor.gilded_enderite_leggings": "Jambières en enderite dorées",
+  "item.gildedarmor.gilded_enderite_boots": "Bottes en enderite dorées",
+  "item.gildedarmor.gilding_upgrade_smithing_template": "Modèle de forge",
+
+  "item.gildedarmor.smithing_template.gilding_upgrade.applies_to": "Equipement en netherite (ou enderite)",
+  "item.gildedarmor.smithing_template.gilding_upgrade.ingredients": "Lingot d'or",
+  "item.gildedarmor.smithing_template.gilding_upgrade.base_slot_description": "Ajoutez une pièce d'armure en netherite (ou enderite)",
+  "item.gildedarmor.smithing_template.gilding_upgrade.additions_slot_description": "Ajoutez un lingot d'or",
+
+  "upgrade.gildedarmor.gilding_upgrade": "Amélioration en dorure"
 }
