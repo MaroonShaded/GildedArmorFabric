@@ -16,7 +16,7 @@ import net.minecraft.util.Util;
 import java.util.EnumMap;
 import java.util.function.Supplier;
 
-public enum ModArmorMaterial implements StringIdentifiable, ArmorMaterial
+public enum ModArmorMaterials implements StringIdentifiable, ArmorMaterial
 {
     GILDED_NETHERITE("gilded_netherite", 37, Util.make(new EnumMap<>(ArmorItem.Type.class), map ->
     {
@@ -57,7 +57,7 @@ public enum ModArmorMaterial implements StringIdentifiable, ArmorMaterial
     private final float knockbackResistance;
     private final Supplier<Ingredient> repairIngredientSupplier;
 
-    ModArmorMaterial(String name, int durabilityMultiplier, EnumMap<ArmorItem.Type, Integer> protectionAmounts, int enchantability, SoundEvent equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredientSupplier, boolean useEnderiteDurability)
+    ModArmorMaterials(String name, int durabilityMultiplier, EnumMap<ArmorItem.Type, Integer> protectionAmounts, int enchantability, SoundEvent equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredientSupplier, boolean useEnderiteDurability)
     {
         this.name = name;
         this.durabilityMultiplier = durabilityMultiplier;
@@ -125,6 +125,4 @@ public enum ModArmorMaterial implements StringIdentifiable, ArmorMaterial
     public String asString() {
         return getName();
     }
-
-
 }
