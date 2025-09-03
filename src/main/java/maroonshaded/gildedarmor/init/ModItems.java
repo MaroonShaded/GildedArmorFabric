@@ -15,8 +15,7 @@ import net.minecraft.util.Identifier;
 
 public class ModItems
 {
-
-    public static final Item GILDING_UPGRADE_SMITHING_TEMPLATE = register("gilding_upgrade_smithing_template", ModSmithingTemplateItem.createGildingUpgradeTemplate());
+    public static final Item GILDING_UPGRADE_SMITHING_TEMPLATE = register("gilding_upgrade_smithing_template", ModSmithingTemplateItem.createGildingUpgrade());
 
     public static final int GILDED_NETHERITE_DURABILITY_MULTIPLIER = 37;
     public static final Item GILDED_NETHERITE_HELMET = register("gilded_netherite_helmet", new ArmorItem(ModArmorMaterials.GILDED_NETHERITE, ArmorItem.Type.HELMET, new Item.Settings().fireproof().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(GILDED_NETHERITE_DURABILITY_MULTIPLIER))));

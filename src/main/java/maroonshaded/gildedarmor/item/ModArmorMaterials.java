@@ -21,7 +21,7 @@ public class ModArmorMaterials
     public static final RegistryEntry<ArmorMaterial> GILDED_NETHERITE = registerCopy("gilded_netherite", ArmorMaterials.NETHERITE.value());
     public static final RegistryEntry<ArmorMaterial> GILDED_ENDERITE = registerCopyOr("gilded_enderite", Identifier.of(GildedArmor.ENDERITE_MOD_MODID, "enderite"),
             Map.of(ArmorItem.Type.BOOTS, 4, ArmorItem.Type.LEGGINGS, 7, ArmorItem.Type.CHESTPLATE, 9, ArmorItem.Type.HELMET, 4, ArmorItem.Type.BODY, 12),
-            17, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, () -> Ingredient.fromTag(GildedArmor.REPAIRS_ENDERITE_ARMOR), 4.0f, 0.1f);
+            17, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, () -> Ingredient.fromTag(GildedArmor.ENDERITE_INGOT), 4.0f, 0.1f);
 
     private static RegistryEntry<ArmorMaterial> register(String id, Map<ArmorItem.Type, Integer> defense, int enchantability, RegistryEntry<SoundEvent> equipSound, Supplier<Ingredient> repairIngredient, float toughness, float knockbackResistance)
     {
