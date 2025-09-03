@@ -20,9 +20,7 @@ public class GildedArmorClient implements ClientModInitializer
     public void onInitializeClient()
     {
         if (FabricLoader.getInstance().isModLoaded(DETAILAB_MODID))
-        {
             registerArmorBars();
-        }
     }
 
     private static void registerArmorBars()

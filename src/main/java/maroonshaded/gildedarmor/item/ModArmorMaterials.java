@@ -1,128 +1,49 @@
 package maroonshaded.gildedarmor.item;
 
-import com.google.common.base.Suppliers;
 import maroonshaded.gildedarmor.GildedArmor;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.Items;
+import net.minecraft.item.ArmorMaterials;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.StringIdentifiable;
-import net.minecraft.util.Util;
+import net.minecraft.util.Identifier;
 
-import java.util.EnumMap;
+import java.util.List;
+import java.util.Map;
 import java.util.function.Supplier;
 
-public enum ModArmorMaterials implements StringIdentifiable, ArmorMaterial
+public class ModArmorMaterials
 {
-    GILDED_NETHERITE("gilded_netherite", 37, Util.make(new EnumMap<>(ArmorItem.Type.class), map ->
-    {
-        map.put(ArmorItem.Type.BOOTS, 3);
-        map.put(ArmorItem.Type.LEGGINGS, 6);
-        map.put(ArmorItem.Type.CHESTPLATE, 8);
-        map.put(ArmorItem.Type.HELMET, 3);
-    }), 17, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F,
-            () -> Ingredient.ofItems(Items.NETHERITE_INGOT), false),
-    GILDED_ENDERITE("gilded_enderite", 8, Util.make(new EnumMap<>(ArmorItem.Type.class), map ->
-    {
-        map.put(ArmorItem.Type.BOOTS, 4);
-        map.put(ArmorItem.Type.LEGGINGS, 7);
-        map.put(ArmorItem.Type.CHESTPLATE, 9);
-        map.put(ArmorItem.Type.HELMET, 4);
-    }), 17, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 4.0F, 0.1F,
-            () -> Ingredient.fromTag(GildedArmor.ENDERITE_INGOT), true);
+    public static final RegistryEntry<ArmorMaterial> GILDED_NETHERITE = registerCopy("gilded_netherite", ArmorMaterials.NETHERITE.value());
+    public static final RegistryEntry<ArmorMaterial> GILDED_ENDERITE = registerCopyOr("gilded_enderite", Identifier.of(GildedArmor.ENDERITE_MOD_MODID, "enderite"),
+            Map.of(ArmorItem.Type.BOOTS, 4, ArmorItem.Type.LEGGINGS, 7, ArmorItem.Type.CHESTPLATE, 9, ArmorItem.Type.HELMET, 4, ArmorItem.Type.BODY, 12),
+            17, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, () -> Ingredient.fromTag(GildedArmor.REPAIRS_ENDERITE_ARMOR), 4.0f, 0.1f);
 
-    private static final EnumMap<ArmorItem.Type, Integer> BASE_DURABILITY = Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
-        map.put(ArmorItem.Type.BOOTS, 13);
-        map.put(ArmorItem.Type.LEGGINGS, 15);
-        map.put(ArmorItem.Type.CHESTPLATE, 16);
-        map.put(ArmorItem.Type.HELMET, 11);
-    });
-    private static final EnumMap<ArmorItem.Type, Integer> ENDERITE_BASE_DURABILITY = Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
-        map.put(ArmorItem.Type.BOOTS, 128);
-        map.put(ArmorItem.Type.LEGGINGS, 144);
-        map.put(ArmorItem.Type.CHESTPLATE, 160);
-        map.put(ArmorItem.Type.HELMET, 112);
-    });
-    private final String name;
-    private final int durabilityMultiplier;
-    private final boolean useEnderiteDurability;
-    private final EnumMap<ArmorItem.Type, Integer> protectionAmounts;
-    private final int enchantability;
-    private final SoundEvent equipSound;
-    private final float toughness;
-    private final float knockbackResistance;
-    private final Supplier<Ingredient> repairIngredientSupplier;
-
-    ModArmorMaterials(String name, int durabilityMultiplier, EnumMap<ArmorItem.Type, Integer> protectionAmounts, int enchantability, SoundEvent equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredientSupplier, boolean useEnderiteDurability)
+    private static RegistryEntry<ArmorMaterial> register(String id, Map<ArmorItem.Type, Integer> defense, int enchantability, RegistryEntry<SoundEvent> equipSound, Supplier<Ingredient> repairIngredient, float toughness, float knockbackResistance)
     {
-        this.name = name;
-        this.durabilityMultiplier = durabilityMultiplier;
-        this.useEnderiteDurability = useEnderiteDurability;
-        this.protectionAmounts = protectionAmounts;
-        this.enchantability = enchantability;
-        this.equipSound = equipSound;
-        this.toughness = toughness;
-        this.knockbackResistance = knockbackResistance;
-        this.repairIngredientSupplier = Suppliers.memoize(repairIngredientSupplier::get);
+        List<ArmorMaterial.Layer> layers = List.of(new ArmorMaterial.Layer(GildedArmor.identifier(id)));
+        ArmorMaterial material = new ArmorMaterial(defense, enchantability, equipSound, repairIngredient, layers, toughness, knockbackResistance);
+        return RegistryEntry.of(Registry.register(Registries.ARMOR_MATERIAL, GildedArmor.identifier(id), material));
     }
 
-    @Override
-    public int getDurability(ArmorItem.Type type) {
-        EnumMap<ArmorItem.Type, Integer> baseDurabilityMap = useEnderiteDurability ? ENDERITE_BASE_DURABILITY : BASE_DURABILITY;
-        return baseDurabilityMap.get(type) * durabilityMultiplier;
-    }
-
-    @Override
-    public int getProtection(ArmorItem.Type type) {
-        return protectionAmounts.get(type);
-    }
-
-    @Override
-    public int getEnchantability()
+    private static RegistryEntry<ArmorMaterial> registerCopy(String id, ArmorMaterial from)
     {
-        return enchantability;
+        return register(id, from.defense(), from.enchantability(), from.equipSound(), from.repairIngredient(), from.toughness(), from.knockbackResistance());
     }
 
-    @Override
-    public SoundEvent getEquipSound()
+    private static RegistryEntry<ArmorMaterial> registerCopyOr(String id, Identifier fromId, Map<ArmorItem.Type, Integer> defense, int enchantability, RegistryEntry<SoundEvent> equipSound, Supplier<Ingredient> repairIngredient, float toughness, float knockbackResistance)
     {
-        return equipSound;
+        return Registries.ARMOR_MATERIAL.getOrEmpty(fromId)
+                .map(material -> registerCopy(id, material))
+                .orElseGet(() -> register(id, defense, enchantability, equipSound, repairIngredient, toughness, knockbackResistance));
     }
 
-    @Override
-    public Ingredient getRepairIngredient()
+    public static void initialize()
     {
-        return repairIngredientSupplier.get();
-    }
-
-    @Environment(EnvType.CLIENT)
-    @Override
-    public String getName()
-    {
-        return name;
-    }
-
-    @Override
-    public float getToughness()
-    {
-        return toughness;
-    }
-
-    @Override
-    public float getKnockbackResistance()
-    {
-        return knockbackResistance;
-    }
-
-    /**
-     * {@return the unique string representation of the enum, used for serialization}
-     */
-    @Override
-    public String asString() {
-        return getName();
+        // Dummy static initializer
     }
 }

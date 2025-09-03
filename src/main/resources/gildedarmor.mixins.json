@@ -1,13 +1,15 @@
 {
   "required": true,
   "package": "maroonshaded.gildedarmor.mixin",
-  "compatibilityLevel": "JAVA_17",
+  "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "ArmorItemMixin",
     "PiglinBrainMixin",
     "EndermanEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
   }
 }

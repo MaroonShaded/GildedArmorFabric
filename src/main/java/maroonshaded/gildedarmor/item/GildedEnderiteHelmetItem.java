@@ -1,6 +1,8 @@
 package maroonshaded.gildedarmor.item;
 
-public class GildedEnderiteHelmetItem extends GildedArmorItem
+import net.minecraft.item.ArmorItem;
+
+public class GildedEnderiteHelmetItem extends ArmorItem
 {
     public GildedEnderiteHelmetItem(Settings settings)
     {
