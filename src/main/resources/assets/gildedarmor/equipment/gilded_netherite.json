@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "gildedarmor:gilded_netherite"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "gildedarmor:gilded_netherite"
+      }
+    ]
+  }
+}

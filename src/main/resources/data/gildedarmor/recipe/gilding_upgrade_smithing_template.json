@@ -1,22 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
+  "key": {
+    "#": "minecraft:gold_ingot",
+    "C": "minecraft:blackstone",
+    "S": "minecraft:netherite_upgrade_smithing_template"
+  },
   "pattern": [
     "#S#",
     "#C#",
     "###"
   ],
-  "key": {
-    "#": {
-      "item": "minecraft:gold_ingot"
-    },
-    "C": {
-      "item": "minecraft:blackstone"
-    },
-    "S": {
-      "item": "minecraft:netherite_upgrade_smithing_template"
-    }
-  },
   "result": {
     "id": "gildedarmor:gilding_upgrade_smithing_template"
   },

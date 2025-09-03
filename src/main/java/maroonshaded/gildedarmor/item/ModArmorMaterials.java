@@ -1,48 +1,34 @@
 package maroonshaded.gildedarmor.item;
 
 import maroonshaded.gildedarmor.GildedArmor;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.ArmorMaterials;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.sound.SoundEvent;
+import net.minecraft.item.equipment.ArmorMaterial;
+import net.minecraft.item.equipment.ArmorMaterials;
+import net.minecraft.item.equipment.EquipmentAsset;
+import net.minecraft.item.equipment.EquipmentType;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.Identifier;
 
-import java.util.List;
 import java.util.Map;
-import java.util.function.Supplier;
 
-public class ModArmorMaterials
+public interface ModArmorMaterials
 {
-    public static final RegistryEntry<ArmorMaterial> GILDED_NETHERITE = registerCopy("gilded_netherite", ArmorMaterials.NETHERITE.value());
-    public static final RegistryEntry<ArmorMaterial> GILDED_ENDERITE = registerCopyOr("gilded_enderite", Identifier.of(GildedArmor.ENDERITE_MOD_MODID, "enderite"),
-            Map.of(ArmorItem.Type.BOOTS, 4, ArmorItem.Type.LEGGINGS, 7, ArmorItem.Type.CHESTPLATE, 9, ArmorItem.Type.HELMET, 4, ArmorItem.Type.BODY, 12),
-            17, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, () -> Ingredient.fromTag(GildedArmor.ENDERITE_INGOT), 4.0f, 0.1f);
+    ArmorMaterial GILDED_NETHERITE = copy(ArmorMaterials.NETHERITE, GildedArmor.GILDED_NETHERITE_ARMOR_MATERIAL_KEY);
+    ArmorMaterial GILDED_ENDERITE = new ArmorMaterial(72, Map.of(
+            EquipmentType.BOOTS, 4,
+            EquipmentType.LEGGINGS, 7,
+            EquipmentType.CHESTPLATE, 9,
+            EquipmentType.HELMET, 4,
+            EquipmentType.BODY, 12),
+            17, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 4.0f, 0.1f, GildedArmor.REPAIRS_ENDERITE_ARMOR,
+            GildedArmor.GILDED_ENDERITE_ARMOR_MATERIAL_KEY
+    );
 
-    private static RegistryEntry<ArmorMaterial> register(String id, Map<ArmorItem.Type, Integer> defense, int enchantability, RegistryEntry<SoundEvent> equipSound, Supplier<Ingredient> repairIngredient, float toughness, float knockbackResistance)
+    private static ArmorMaterial copy(ArmorMaterial from, RegistryKey<EquipmentAsset> assetId)
     {
-        List<ArmorMaterial.Layer> layers = List.of(new ArmorMaterial.Layer(GildedArmor.identifier(id)));
-        ArmorMaterial material = new ArmorMaterial(defense, enchantability, equipSound, repairIngredient, layers, toughness, knockbackResistance);
-        return RegistryEntry.of(Registry.register(Registries.ARMOR_MATERIAL, GildedArmor.identifier(id), material));
+        return new ArmorMaterial(from.durability(), from.defense(), from.enchantmentValue(), from.equipSound(), from.toughness(), from.knockbackResistance(), from.repairIngredient(), assetId);
     }
 
-    private static RegistryEntry<ArmorMaterial> registerCopy(String id, ArmorMaterial from)
-    {
-        return register(id, from.defense(), from.enchantability(), from.equipSound(), from.repairIngredient(), from.toughness(), from.knockbackResistance());
-    }
-
-    private static RegistryEntry<ArmorMaterial> registerCopyOr(String id, Identifier fromId, Map<ArmorItem.Type, Integer> defense, int enchantability, RegistryEntry<SoundEvent> equipSound, Supplier<Ingredient> repairIngredient, float toughness, float knockbackResistance)
-    {
-        return Registries.ARMOR_MATERIAL.getOrEmpty(fromId)
-                .map(material -> registerCopy(id, material))
-                .orElseGet(() -> register(id, defense, enchantability, equipSound, repairIngredient, toughness, knockbackResistance));
-    }
-
-    public static void initialize()
+    static void initialize()
     {
         // Dummy static initializer
     }

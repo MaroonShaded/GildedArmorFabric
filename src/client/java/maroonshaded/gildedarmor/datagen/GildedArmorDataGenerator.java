@@ -2,15 +2,13 @@ package maroonshaded.gildedarmor.datagen;
 
 import maroonshaded.gildedarmor.GildedArmor;
 import maroonshaded.gildedarmor.init.ModItems;
+import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.data.client.BlockStateModelGenerator;
-import net.minecraft.data.client.ItemModelGenerator;
-import net.minecraft.data.client.Models;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.Item;
+import net.minecraft.client.data.BlockStateModelGenerator;
+import net.minecraft.client.data.ItemModelGenerator;
+import net.minecraft.client.data.Models;
 
 public class GildedArmorDataGenerator implements DataGeneratorEntrypoint
 {
@@ -29,20 +27,25 @@ public class GildedArmorDataGenerator implements DataGeneratorEntrypoint
         }
 
         @Override
-        public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator)
+        public void generateBlockStateModels(BlockStateModelGenerator generator)
         {
             // No blocks
         }
 
         @Override
-        public void generateItemModels(ItemModelGenerator itemModelGenerator)
+        public void generateItemModels(ItemModelGenerator generator)
         {
-            itemModelGenerator.register(ModItems.GILDING_UPGRADE_SMITHING_TEMPLATE, Models.GENERATED);
+            generator.register(ModItems.GILDING_UPGRADE_SMITHING_TEMPLATE, Models.GENERATED);
 
-            // Pay attention to replace with netherite_darker when applicable
-            for (Item item : GildedArmor.ITEMS.values())
-                if (item instanceof ArmorItem armorItem)
-                    itemModelGenerator.registerArmor(armorItem);
+            // Pay attention to replace with the _darker variants when applicable
+            generator.registerArmor(ModItems.GILDED_NETHERITE_HELMET, GildedArmor.GILDED_NETHERITE_ARMOR_MATERIAL_KEY, "helmet", false);
+            generator.registerArmor(ModItems.GILDED_NETHERITE_CHESTPLATE, GildedArmor.GILDED_NETHERITE_ARMOR_MATERIAL_KEY, "chestplate", false);
+            generator.registerArmor(ModItems.GILDED_NETHERITE_LEGGINGS, GildedArmor.GILDED_NETHERITE_ARMOR_MATERIAL_KEY, "leggings", false);
+            generator.registerArmor(ModItems.GILDED_NETHERITE_BOOTS, GildedArmor.GILDED_NETHERITE_ARMOR_MATERIAL_KEY, "boots", false);
+            generator.registerArmor(ModItems.GILDED_ENDERITE_HELMET, GildedArmor.GILDED_ENDERITE_ARMOR_MATERIAL_KEY, "helmet", false);
+            generator.registerArmor(ModItems.GILDED_ENDERITE_CHESTPLATE, GildedArmor.GILDED_ENDERITE_ARMOR_MATERIAL_KEY, "chestplate", false);
+            generator.registerArmor(ModItems.GILDED_ENDERITE_LEGGINGS, GildedArmor.GILDED_ENDERITE_ARMOR_MATERIAL_KEY, "leggings", false);
+            generator.registerArmor(ModItems.GILDED_ENDERITE_BOOTS, GildedArmor.GILDED_ENDERITE_ARMOR_MATERIAL_KEY, "boots", false);
         }
     }
 }

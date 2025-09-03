@@ -1,14 +1,8 @@
 {
   "type": "minecraft:smithing_transform",
-  "template": {
-    "item": "gildedarmor:gilding_upgrade_smithing_template"
-  },
-  "base": {
-    "item": "enderitemod:enderite_chestplate"
-  },
-  "addition": {
-    "item": "minecraft:gold_ingot"
-  },
+  "template": "gildedarmor:gilding_upgrade_smithing_template",
+  "base": "enderitemod:enderite_chestplate",
+  "addition": "minecraft:gold_ingot",
   "result": {
     "id": "gildedarmor:gilded_enderite_chestplate"
   },

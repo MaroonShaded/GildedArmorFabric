@@ -9,31 +9,36 @@ import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
+import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
+
+import java.util.function.Function;
 
 public class ModItems
 {
-    public static final Item GILDING_UPGRADE_SMITHING_TEMPLATE = register("gilding_upgrade_smithing_template", ModSmithingTemplateItem.createGildingUpgrade());
+    public static final Item GILDING_UPGRADE_SMITHING_TEMPLATE = register("gilding_upgrade_smithing_template", ModSmithingTemplateItem::createGildingUpgrade, new Item.Settings().rarity(Rarity.UNCOMMON));
 
-    public static final int GILDED_NETHERITE_DURABILITY_MULTIPLIER = 37;
-    public static final Item GILDED_NETHERITE_HELMET = register("gilded_netherite_helmet", new ArmorItem(ModArmorMaterials.GILDED_NETHERITE, ArmorItem.Type.HELMET, new Item.Settings().fireproof().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(GILDED_NETHERITE_DURABILITY_MULTIPLIER))));
-    public static final Item GILDED_NETHERITE_CHESTPLATE = register("gilded_netherite_chestplate", new ArmorItem(ModArmorMaterials.GILDED_NETHERITE, ArmorItem.Type.CHESTPLATE, new Item.Settings().fireproof().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(GILDED_NETHERITE_DURABILITY_MULTIPLIER))));
-    public static final Item GILDED_NETHERITE_LEGGINGS = register("gilded_netherite_leggings", new ArmorItem(ModArmorMaterials.GILDED_NETHERITE, ArmorItem.Type.LEGGINGS, new Item.Settings().fireproof().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(GILDED_NETHERITE_DURABILITY_MULTIPLIER))));
-    public static final Item GILDED_NETHERITE_BOOTS = register("gilded_netherite_boots", new ArmorItem(ModArmorMaterials.GILDED_NETHERITE, ArmorItem.Type.BOOTS, new Item.Settings().fireproof().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(GILDED_NETHERITE_DURABILITY_MULTIPLIER))));
+    public static final Item GILDED_NETHERITE_HELMET = register("gilded_netherite_helmet", settings -> new ArmorItem(ModArmorMaterials.GILDED_NETHERITE, EquipmentType.HELMET, settings), new Item.Settings().fireproof());
+    public static final Item GILDED_NETHERITE_CHESTPLATE = register("gilded_netherite_chestplate", settings -> new ArmorItem(ModArmorMaterials.GILDED_NETHERITE, EquipmentType.CHESTPLATE, settings), new Item.Settings().fireproof());
+    public static final Item GILDED_NETHERITE_LEGGINGS = register("gilded_netherite_leggings", settings -> new ArmorItem(ModArmorMaterials.GILDED_NETHERITE, EquipmentType.LEGGINGS, settings), new Item.Settings().fireproof());
+    public static final Item GILDED_NETHERITE_BOOTS = register("gilded_netherite_boots", settings -> new ArmorItem(ModArmorMaterials.GILDED_NETHERITE, EquipmentType.BOOTS, settings), new Item.Settings().fireproof());
 
     // For the Enderite mod
-    public static final int GILDED_ENDERITE_DURABILITY_MULTIPLIER = 72;
-    public static final Item GILDED_ENDERITE_HELMET = register("gilded_enderite_helmet", new GildedEnderiteHelmetItem(new Item.Settings().fireproof().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(GILDED_ENDERITE_DURABILITY_MULTIPLIER))));
-    public static final Item GILDED_ENDERITE_CHESTPLATE = register("gilded_enderite_chestplate", new ArmorItem(ModArmorMaterials.GILDED_ENDERITE, ArmorItem.Type.CHESTPLATE, new Item.Settings().fireproof().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(GILDED_ENDERITE_DURABILITY_MULTIPLIER))));
-    public static final Item GILDED_ENDERITE_LEGGINGS = register("gilded_enderite_leggings", new ArmorItem(ModArmorMaterials.GILDED_ENDERITE, ArmorItem.Type.LEGGINGS, new Item.Settings().fireproof().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(GILDED_ENDERITE_DURABILITY_MULTIPLIER))));
-    public static final Item GILDED_ENDERITE_BOOTS = register("gilded_enderite_boots", new ArmorItem(ModArmorMaterials.GILDED_ENDERITE, ArmorItem.Type.BOOTS, new Item.Settings().fireproof().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(GILDED_ENDERITE_DURABILITY_MULTIPLIER))));
+    public static final Item GILDED_ENDERITE_HELMET = register("gilded_enderite_helmet", GildedEnderiteHelmetItem::new, new Item.Settings().fireproof());
+    public static final Item GILDED_ENDERITE_CHESTPLATE = register("gilded_enderite_chestplate", settings -> new ArmorItem(ModArmorMaterials.GILDED_ENDERITE, EquipmentType.CHESTPLATE, settings), new Item.Settings().fireproof());
+    public static final Item GILDED_ENDERITE_LEGGINGS = register("gilded_enderite_leggings", settings -> new ArmorItem(ModArmorMaterials.GILDED_ENDERITE, EquipmentType.LEGGINGS, settings), new Item.Settings().fireproof());
+    public static final Item GILDED_ENDERITE_BOOTS = register("gilded_enderite_boots", settings -> new ArmorItem(ModArmorMaterials.GILDED_ENDERITE, EquipmentType.BOOTS, settings), new Item.Settings().fireproof());
 
-    private static Item register(String id, Item item)
+    private static Item register(String id, Function<Item.Settings, Item> factory, Item.Settings settings)
     {
-        GildedArmor.ITEMS.put(id, item);
-        return Registry.register(Registries.ITEM, GildedArmor.identifier(id), item);
+        RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, GildedArmor.identifier(id));
+        Item item = factory.apply(settings.registryKey(itemKey));
+        return Registry.register(Registries.ITEM, itemKey, item);
     }
 
     public static void initialize()

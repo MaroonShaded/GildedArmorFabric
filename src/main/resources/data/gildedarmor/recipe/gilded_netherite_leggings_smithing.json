@@ -1,14 +1,8 @@
 {
   "type": "minecraft:smithing_transform",
-  "template": {
-    "item": "gildedarmor:gilding_upgrade_smithing_template"
-  },
-  "base": {
-    "item": "minecraft:netherite_leggings"
-  },
-  "addition": {
-    "item": "minecraft:gold_ingot"
-  },
+  "template": "gildedarmor:gilding_upgrade_smithing_template",
+  "base": "minecraft:netherite_leggings",
+  "addition": "minecraft:gold_ingot",
   "result": {
     "id": "gildedarmor:gilded_netherite_leggings"
   }
