@@ -16,6 +16,12 @@ public class ModSmithingTemplateItem extends SmithingTemplateItem
     private static final Text GILDING_UPGRADE_BASE_SLOT_DESCRIPTION = Text.translatable(Util.createTranslationKey("item", GildedArmor.identifier("smithing_template.gilding_upgrade.base_slot_description")));
     private static final Text GILDING_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Text.translatable(Util.createTranslationKey("item", GildedArmor.identifier("smithing_template.gilding_upgrade.additions_slot_description")));
 
+    private static final Identifier EMPTY_ARMOR_SLOT_HELMET_TEXTURE = Identifier.ofVanilla("item/empty_armor_slot_helmet");
+    private static final Identifier EMPTY_ARMOR_SLOT_CHESTPLATE_TEXTURE = Identifier.ofVanilla("item/empty_armor_slot_chestplate");
+    private static final Identifier EMPTY_ARMOR_SLOT_LEGGINGS_TEXTURE = Identifier.ofVanilla("item/empty_armor_slot_leggings");
+    private static final Identifier EMPTY_ARMOR_SLOT_BOOTS_TEXTURE = Identifier.ofVanilla("item/empty_armor_slot_boots");
+    private static final Identifier EMPTY_SLOT_INGOT_TEXTURE = Identifier.ofVanilla("item/empty_slot_ingot");
+
     public ModSmithingTemplateItem(Text pAppliesTo, Text pIngredients, Text pUpgradeDescription, Text pBaseSlotDescription, Text pAdditionsSlotDescription, List<Identifier> pBaseSlotEmptyIcons, List<Identifier> pAdditionalSlotEmptyIcons)
     {
         super(pAppliesTo, pIngredients, pUpgradeDescription, pBaseSlotDescription, pAdditionsSlotDescription, pBaseSlotEmptyIcons, pAdditionalSlotEmptyIcons);
@@ -23,6 +29,16 @@ public class ModSmithingTemplateItem extends SmithingTemplateItem
 
     public static ModSmithingTemplateItem createGildingUpgrade()
     {
-        return new ModSmithingTemplateItem(GILDING_UPGRADE_APPLIES_TO, GILDING_UPGRADE_INGREDIENTS, GILDING_UPGRADE, GILDING_UPGRADE_BASE_SLOT_DESCRIPTION, GILDING_UPGRADE_ADDITIONS_SLOT_DESCRIPTION, getArmorTrimEmptyBaseSlotTextures(), getNetheriteUpgradeEmptyAdditionsSlotTextures());
+        return new ModSmithingTemplateItem(GILDING_UPGRADE_APPLIES_TO, GILDING_UPGRADE_INGREDIENTS, GILDING_UPGRADE, GILDING_UPGRADE_BASE_SLOT_DESCRIPTION, GILDING_UPGRADE_ADDITIONS_SLOT_DESCRIPTION, getGildingUpgradeEmptyBaseSlotTextures(), getGildingUpgradeEmptyAdditionsSlotTextures());
+    }
+
+    public static List<Identifier> getGildingUpgradeEmptyBaseSlotTextures()
+    {
+        return List.of(EMPTY_ARMOR_SLOT_HELMET_TEXTURE, EMPTY_ARMOR_SLOT_CHESTPLATE_TEXTURE, EMPTY_ARMOR_SLOT_LEGGINGS_TEXTURE, EMPTY_ARMOR_SLOT_BOOTS_TEXTURE);
+    }
+
+    public static List<Identifier> getGildingUpgradeEmptyAdditionsSlotTextures()
+    {
+        return List.of(EMPTY_SLOT_INGOT_TEXTURE);
     }
 }

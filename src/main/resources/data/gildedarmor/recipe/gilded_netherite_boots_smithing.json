@@ -4,12 +4,12 @@
     "item": "gildedarmor:gilding_upgrade_smithing_template"
   },
   "base": {
-    "item": "minecraft:netherite_chestplate"
+    "item": "minecraft:netherite_boots"
   },
   "addition": {
     "item": "minecraft:gold_ingot"
   },
   "result": {
-    "item": "gildedarmor:gilded_netherite_chestplate"
+    "id": "gildedarmor:gilded_netherite_boots"
   }
 }

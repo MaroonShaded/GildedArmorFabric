@@ -18,7 +18,7 @@
     }
   },
   "result": {
-    "item": "gildedarmor:gilding_upgrade_smithing_template"
+    "id": "gildedarmor:gilding_upgrade_smithing_template"
   },
   "show_notification": true
 }

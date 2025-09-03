@@ -4,13 +4,13 @@
     "item": "gildedarmor:gilding_upgrade_smithing_template"
   },
   "base": {
-    "item": "enderitemod:enderite_chestplate"
+    "item": "enderitemod:enderite_helmet"
   },
   "addition": {
     "item": "minecraft:gold_ingot"
   },
   "result": {
-    "item": "gildedarmor:gilded_enderite_chestplate"
+    "id": "gildedarmor:gilded_enderite_helmet"
   },
   "fabric:load_conditions": [
     {

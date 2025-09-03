@@ -4,12 +4,12 @@
     "item": "gildedarmor:gilding_upgrade_smithing_template"
   },
   "base": {
-    "item": "minecraft:netherite_leggings"
+    "item": "minecraft:netherite_helmet"
   },
   "addition": {
     "item": "minecraft:gold_ingot"
   },
   "result": {
-    "item": "gildedarmor:gilded_netherite_leggings"
+    "id": "gildedarmor:gilded_netherite_helmet"
   }
 }
