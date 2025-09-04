@@ -1,7 +1,6 @@
 package maroonshaded.gildedarmor.init;
 
 import maroonshaded.gildedarmor.GildedArmor;
-import maroonshaded.gildedarmor.item.GildedEnderiteHelmetItem;
 import maroonshaded.gildedarmor.item.ModArmorMaterials;
 import maroonshaded.gildedarmor.item.ModSmithingTemplateItem;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -29,7 +28,7 @@ public class ModItems
     public static final Item GILDED_NETHERITE_BOOTS = register("gilded_netherite_boots", settings -> new ArmorItem(ModArmorMaterials.GILDED_NETHERITE, EquipmentType.BOOTS, settings), new Item.Settings().fireproof());
 
     // For the Enderite mod
-    public static final Item GILDED_ENDERITE_HELMET = register("gilded_enderite_helmet", GildedEnderiteHelmetItem::new, new Item.Settings().fireproof());
+    public static final Item GILDED_ENDERITE_HELMET = register("gilded_enderite_helmet", settings -> new ArmorItem(ModArmorMaterials.GILDED_ENDERITE, EquipmentType.HELMET, settings), new Item.Settings().fireproof());
     public static final Item GILDED_ENDERITE_CHESTPLATE = register("gilded_enderite_chestplate", settings -> new ArmorItem(ModArmorMaterials.GILDED_ENDERITE, EquipmentType.CHESTPLATE, settings), new Item.Settings().fireproof());
     public static final Item GILDED_ENDERITE_LEGGINGS = register("gilded_enderite_leggings", settings -> new ArmorItem(ModArmorMaterials.GILDED_ENDERITE, EquipmentType.LEGGINGS, settings), new Item.Settings().fireproof());
     public static final Item GILDED_ENDERITE_BOOTS = register("gilded_enderite_boots", settings -> new ArmorItem(ModArmorMaterials.GILDED_ENDERITE, EquipmentType.BOOTS, settings), new Item.Settings().fireproof());
