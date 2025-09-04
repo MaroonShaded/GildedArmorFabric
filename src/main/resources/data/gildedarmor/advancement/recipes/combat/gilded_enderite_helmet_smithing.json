@@ -6,9 +6,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "enderitemod:enderite_helmet"
-            ]
+            "items": "enderitemod:enderite_helmet"
           }
         ]
       }

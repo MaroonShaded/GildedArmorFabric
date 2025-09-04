@@ -6,9 +6,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:netherite_leggings"
-            ]
+            "items": "minecraft:netherite_leggings"
           }
         ]
       }

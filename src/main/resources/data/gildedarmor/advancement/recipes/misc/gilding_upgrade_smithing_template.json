@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:netherite_upgrade_smithing_template"
-            ]
+            "items": "minecraft:netherite_upgrade_smithing_template"
           }
         ]
       },
@@ -30,6 +28,5 @@
     "recipes": [
       "gildedarmor:gilding_upgrade_smithing_template"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

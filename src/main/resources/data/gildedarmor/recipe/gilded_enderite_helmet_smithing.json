@@ -2,7 +2,7 @@
   "type": "minecraft:smithing_transform",
   "template": "gildedarmor:gilding_upgrade_smithing_template",
   "base": "enderitemod:enderite_helmet",
-  "addition": "minecraft:gold_ingot",
+  "addition": "#minecraft:gold_tool_materials",
   "result": {
     "id": "gildedarmor:gilded_enderite_helmet"
   },
