@@ -4,7 +4,6 @@ import maroonshaded.gildedarmor.GildedArmor;
 import maroonshaded.gildedarmor.item.ModArmorMaterials;
 import maroonshaded.gildedarmor.item.ModSmithingTemplateItem;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
@@ -22,16 +21,21 @@ public class ModItems
 {
     public static final Item GILDING_UPGRADE_SMITHING_TEMPLATE = register("gilding_upgrade_smithing_template", ModSmithingTemplateItem::createGildingUpgrade, new Item.Settings().rarity(Rarity.UNCOMMON));
 
-    public static final Item GILDED_NETHERITE_HELMET = register("gilded_netherite_helmet", settings -> new ArmorItem(ModArmorMaterials.GILDED_NETHERITE, EquipmentType.HELMET, settings), new Item.Settings().fireproof());
-    public static final Item GILDED_NETHERITE_CHESTPLATE = register("gilded_netherite_chestplate", settings -> new ArmorItem(ModArmorMaterials.GILDED_NETHERITE, EquipmentType.CHESTPLATE, settings), new Item.Settings().fireproof());
-    public static final Item GILDED_NETHERITE_LEGGINGS = register("gilded_netherite_leggings", settings -> new ArmorItem(ModArmorMaterials.GILDED_NETHERITE, EquipmentType.LEGGINGS, settings), new Item.Settings().fireproof());
-    public static final Item GILDED_NETHERITE_BOOTS = register("gilded_netherite_boots", settings -> new ArmorItem(ModArmorMaterials.GILDED_NETHERITE, EquipmentType.BOOTS, settings), new Item.Settings().fireproof());
+    public static final Item GILDED_NETHERITE_HELMET = register("gilded_netherite_helmet", new Item.Settings().armor(ModArmorMaterials.GILDED_NETHERITE, EquipmentType.HELMET).fireproof());
+    public static final Item GILDED_NETHERITE_CHESTPLATE = register("gilded_netherite_chestplate", new Item.Settings().armor(ModArmorMaterials.GILDED_NETHERITE, EquipmentType.CHESTPLATE).fireproof());
+    public static final Item GILDED_NETHERITE_LEGGINGS = register("gilded_netherite_leggings", new Item.Settings().armor(ModArmorMaterials.GILDED_NETHERITE, EquipmentType.LEGGINGS).fireproof());
+    public static final Item GILDED_NETHERITE_BOOTS = register("gilded_netherite_boots", new Item.Settings().armor(ModArmorMaterials.GILDED_NETHERITE, EquipmentType.BOOTS).fireproof());
 
     // For the Enderite mod
-    public static final Item GILDED_ENDERITE_HELMET = register("gilded_enderite_helmet", settings -> new ArmorItem(ModArmorMaterials.GILDED_ENDERITE, EquipmentType.HELMET, settings), new Item.Settings().fireproof());
-    public static final Item GILDED_ENDERITE_CHESTPLATE = register("gilded_enderite_chestplate", settings -> new ArmorItem(ModArmorMaterials.GILDED_ENDERITE, EquipmentType.CHESTPLATE, settings), new Item.Settings().fireproof());
-    public static final Item GILDED_ENDERITE_LEGGINGS = register("gilded_enderite_leggings", settings -> new ArmorItem(ModArmorMaterials.GILDED_ENDERITE, EquipmentType.LEGGINGS, settings), new Item.Settings().fireproof());
-    public static final Item GILDED_ENDERITE_BOOTS = register("gilded_enderite_boots", settings -> new ArmorItem(ModArmorMaterials.GILDED_ENDERITE, EquipmentType.BOOTS, settings), new Item.Settings().fireproof());
+    public static final Item GILDED_ENDERITE_HELMET = register("gilded_enderite_helmet", new Item.Settings().armor(ModArmorMaterials.GILDED_ENDERITE, EquipmentType.HELMET).fireproof());
+    public static final Item GILDED_ENDERITE_CHESTPLATE = register("gilded_enderite_chestplate", new Item.Settings().armor(ModArmorMaterials.GILDED_ENDERITE, EquipmentType.CHESTPLATE).fireproof());
+    public static final Item GILDED_ENDERITE_LEGGINGS = register("gilded_enderite_leggings", new Item.Settings().armor(ModArmorMaterials.GILDED_ENDERITE, EquipmentType.LEGGINGS).fireproof());
+    public static final Item GILDED_ENDERITE_BOOTS = register("gilded_enderite_boots", new Item.Settings().armor(ModArmorMaterials.GILDED_ENDERITE, EquipmentType.BOOTS).fireproof());
+
+    private static Item register(String id, Item.Settings settings)
+    {
+        return register(id, Item::new, settings);
+    }
 
     private static Item register(String id, Function<Item.Settings, Item> factory, Item.Settings settings)
     {

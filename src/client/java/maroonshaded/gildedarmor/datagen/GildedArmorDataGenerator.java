@@ -38,14 +38,14 @@ public class GildedArmorDataGenerator implements DataGeneratorEntrypoint
             generator.register(ModItems.GILDING_UPGRADE_SMITHING_TEMPLATE, Models.GENERATED);
 
             // Pay attention to replace with the _darker variants when applicable
-            generator.registerArmor(ModItems.GILDED_NETHERITE_HELMET, GildedArmor.GILDED_NETHERITE_ARMOR_MATERIAL_KEY, "helmet", false);
-            generator.registerArmor(ModItems.GILDED_NETHERITE_CHESTPLATE, GildedArmor.GILDED_NETHERITE_ARMOR_MATERIAL_KEY, "chestplate", false);
-            generator.registerArmor(ModItems.GILDED_NETHERITE_LEGGINGS, GildedArmor.GILDED_NETHERITE_ARMOR_MATERIAL_KEY, "leggings", false);
-            generator.registerArmor(ModItems.GILDED_NETHERITE_BOOTS, GildedArmor.GILDED_NETHERITE_ARMOR_MATERIAL_KEY, "boots", false);
-            generator.registerArmor(ModItems.GILDED_ENDERITE_HELMET, GildedArmor.GILDED_ENDERITE_ARMOR_MATERIAL_KEY, "helmet", false);
-            generator.registerArmor(ModItems.GILDED_ENDERITE_CHESTPLATE, GildedArmor.GILDED_ENDERITE_ARMOR_MATERIAL_KEY, "chestplate", false);
-            generator.registerArmor(ModItems.GILDED_ENDERITE_LEGGINGS, GildedArmor.GILDED_ENDERITE_ARMOR_MATERIAL_KEY, "leggings", false);
-            generator.registerArmor(ModItems.GILDED_ENDERITE_BOOTS, GildedArmor.GILDED_ENDERITE_ARMOR_MATERIAL_KEY, "boots", false);
+            generator.registerArmor(ModItems.GILDED_NETHERITE_HELMET, GildedArmor.GILDED_NETHERITE_ARMOR_MATERIAL_KEY, ItemModelGenerator.HELMET_TRIM_ID_PREFIX, false);
+            generator.registerArmor(ModItems.GILDED_NETHERITE_CHESTPLATE, GildedArmor.GILDED_NETHERITE_ARMOR_MATERIAL_KEY, ItemModelGenerator.CHESTPLATE_TRIM_ID_PREFIX, false);
+            generator.registerArmor(ModItems.GILDED_NETHERITE_LEGGINGS, GildedArmor.GILDED_NETHERITE_ARMOR_MATERIAL_KEY, ItemModelGenerator.LEGGINGS_TRIM_ID_PREFIX, false);
+            generator.registerArmor(ModItems.GILDED_NETHERITE_BOOTS, GildedArmor.GILDED_NETHERITE_ARMOR_MATERIAL_KEY, ItemModelGenerator.BOOTS_TRIM_ID_PREFIX, false);
+            generator.registerArmor(ModItems.GILDED_ENDERITE_HELMET, GildedArmor.GILDED_ENDERITE_ARMOR_MATERIAL_KEY, ItemModelGenerator.HELMET_TRIM_ID_PREFIX, false);
+            generator.registerArmor(ModItems.GILDED_ENDERITE_CHESTPLATE, GildedArmor.GILDED_ENDERITE_ARMOR_MATERIAL_KEY, ItemModelGenerator.CHESTPLATE_TRIM_ID_PREFIX, false);
+            generator.registerArmor(ModItems.GILDED_ENDERITE_LEGGINGS, GildedArmor.GILDED_ENDERITE_ARMOR_MATERIAL_KEY, ItemModelGenerator.LEGGINGS_TRIM_ID_PREFIX, false);
+            generator.registerArmor(ModItems.GILDED_ENDERITE_BOOTS, GildedArmor.GILDED_ENDERITE_ARMOR_MATERIAL_KEY, ItemModelGenerator.BOOTS_TRIM_ID_PREFIX, false);
         }
     }
 }

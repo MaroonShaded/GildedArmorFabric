@@ -57,8 +57,8 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	// Detail Armor Bar (https://modrinth.com/mod/detail-armor-bar)
-	modCompileOnly "maven.modrinth:detail-armor-bar:${detailab_version}"
+	// Detail Armor Bar Reconstructed (https://modrinth.com/mod/detail-armor-bar-reconstructed)
+	modCompileOnly "maven.modrinth:detail-armor-bar-reconstructed:${detailab_version}"
 }
 
 loom {

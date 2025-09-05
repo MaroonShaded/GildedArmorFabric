@@ -7,12 +7,11 @@ import com.redlimerl.detailab.api.render.TextureOffset;
 import maroonshaded.gildedarmor.init.ModItems;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.item.ArmorItem;
 import net.minecraft.util.Identifier;
 
 public class GildedArmorClient implements ClientModInitializer
 {
-    public static final String DETAILAB_MODID = "detailab";
+    public static final String DETAILAB_MODID = "detailabreconst";
 
     private static final Identifier ARMOR_BAR_TEXTURE = GildedArmor.identifier("textures/gui/armor_bar.png");
 
@@ -39,10 +38,10 @@ public class GildedArmorClient implements ClientModInitializer
 
         DetailArmorBarAPI.customArmorBarBuilder()
                 .armor(
-                        (ArmorItem) ModItems.GILDED_NETHERITE_HELMET,
-                        (ArmorItem) ModItems.GILDED_NETHERITE_CHESTPLATE,
-                        (ArmorItem) ModItems.GILDED_NETHERITE_LEGGINGS,
-                        (ArmorItem) ModItems.GILDED_NETHERITE_BOOTS)
+                        ModItems.GILDED_NETHERITE_HELMET,
+                        ModItems.GILDED_NETHERITE_CHESTPLATE,
+                        ModItems.GILDED_NETHERITE_LEGGINGS,
+                        ModItems.GILDED_NETHERITE_BOOTS)
                 .render(stack -> DetailArmorBar.getConfig().getOptions().toggleVanillaTexture
                         ? vanillaRenderManager
                         : renderManager)
